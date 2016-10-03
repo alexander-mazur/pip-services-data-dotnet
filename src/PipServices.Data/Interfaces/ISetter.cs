@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PipServices.Data.Interfaces
 {
     public interface ISetter<T>
     {
-        Task<T> SetAsync(string correlationId, T entity);
+        Task<T> SetAsync(string correlationId, T entity, CancellationToken token);
     }
 }

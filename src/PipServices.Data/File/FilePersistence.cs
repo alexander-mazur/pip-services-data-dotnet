@@ -10,7 +10,7 @@ namespace PipServices.Data.File
     {
         protected readonly JsonFilePersister<T> Persister;
 
-        private FilePersistence(JsonFilePersister<T> persister)
+        public FilePersistence(JsonFilePersister<T> persister)
             : base(persister, persister)
         {
             Persister = persister;

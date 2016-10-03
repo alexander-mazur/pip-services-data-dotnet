@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using PipServices.Commons.Config;
@@ -14,12 +15,7 @@ namespace PipServices.Data.MongoDb
         where T : IIdentifiable<TI>
         where TI : class
     {
-        public Task ClearAsync(string correlationId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task CloseAsync(string correlationId)
+        public void SetReferences(IReferences references)
         {
             throw new NotImplementedException();
         }
@@ -29,37 +25,47 @@ namespace PipServices.Data.MongoDb
             throw new NotImplementedException();
         }
 
-        public T GetOneById(string correlationId, TI id)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task OpenAsync(string correlationId, CancellationToken token)
         {
             throw new NotImplementedException();
         }
 
-        public void SetReferences(IReferences references)
+        public Task CloseAsync(string correlationId, CancellationToken token)
         {
             throw new NotImplementedException();
         }
 
-        public Task<T> SetAsync(string correlationId, T entity)
+        public Task ClearAsync(string correlationId, CancellationToken token)
         {
             throw new NotImplementedException();
         }
 
-        public Task<T> CreateAsync(string correlationId, T entity)
+        public Task<T> CreateAsync(string correlationId, T entity, CancellationToken token)
         {
             throw new NotImplementedException();
         }
 
-        public Task<T> DeleteByIdAsync(string correlationId, TI id)
+        public Task<T> UpdateAsync(string correlationId, T entity, CancellationToken token)
         {
             throw new NotImplementedException();
         }
 
-        public Task<T> UpdateAsync(string correlationId, T entity)
+        public Task<T> DeleteByIdAsync(string correlationId, TI id, CancellationToken token)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> GetOneByIdAsync(string correlationId, TI id, CancellationToken token)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<T>> GetAllAsync(string correlationId, CancellationToken token)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> SetAsync(string correlationId, T entity, CancellationToken token)
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Immutable;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -41,7 +43,7 @@ namespace PipServices.Data.Memory
             _saver = saver;
         }
 
-        public async Task ClearAsync(string correlationId)
+        public async Task ClearAsync(string correlationId, CancellationToken token)
         {
             Lock.EnterWriteLock();
 
@@ -51,7 +53,7 @@ namespace PipServices.Data.Memory
 
                 Logger.Trace(correlationId, "Cleared {0}", TypeName);
 
-                await SaveAsync(correlationId);
+                await SaveAsync(correlationId, token);
             }
             finally
             {
@@ -59,9 +61,9 @@ namespace PipServices.Data.Memory
             }
         }
 
-        public Task CloseAsync(string correlationId)
+        public Task CloseAsync(string correlationId, CancellationToken token)
         {
-            return SaveAsync(correlationId);
+            return SaveAsync(correlationId, token);
         }
 
         public virtual void Configure(ConfigParams config)
@@ -69,7 +71,7 @@ namespace PipServices.Data.Memory
             MaxPageSize = config.GetAsIntegerWithDefault("max_page_size", DefaultMaxPageSize);
         }
 
-        public T GetOneById(string correlationId, TI id)
+        public Task<T> GetOneByIdAsync(string correlationId, TI id, CancellationToken token)
         {
             Lock.EnterReadLock();
 
@@ -82,11 +84,27 @@ namespace PipServices.Data.Memory
                 else
                     Logger.Trace(correlationId, "Cannot find {0} by {1}", TypeName, id);
 
-                return item;
+                return Task.FromResult(item);
             }
             finally
             {
-                Lock.ExitWriteLock();
+                Lock.EnterReadLock();
+            }
+        }
+
+        public Task<IEnumerable<T>> GetAllAsync(string correlationId, CancellationToken token)
+        {
+            Lock.EnterReadLock();
+
+            try
+            {
+                Logger.Trace(correlationId, "Retrieved {0} of {1}", Items.Count, TypeName);
+
+                return Task.FromResult(Items as IEnumerable<T>);
+            }
+            finally
+            {
+                Lock.EnterReadLock();
             }
         }
 
@@ -116,7 +134,7 @@ namespace PipServices.Data.Memory
             }
         }
 
-        public async Task SaveAsync(string correlationId)
+        public async Task SaveAsync(string correlationId, CancellationToken token)
         {
     	    if (_saver == null)
                 return;
@@ -128,6 +146,10 @@ namespace PipServices.Data.Memory
                 await _saver.SaveAsync(correlationId, Items);
 
                 Logger.Trace(correlationId, "Saved {0} of {1}", Items.Count, TypeName);
+            }
+            catch (Exception ex)
+            {
+                
             }
             finally
             {
@@ -142,7 +164,7 @@ namespace PipServices.Data.Memory
             Logger = logger ?? Logger;
         }
 
-        public async Task<T> SetAsync(string correlationId, T entity)
+        public async Task<T> SetAsync(string correlationId, T entity, CancellationToken token)
         {
             var identifiable = entity as IStringIdentifiable;
             if (identifiable != null && entity.Id == null)
@@ -163,12 +185,12 @@ namespace PipServices.Data.Memory
                 Lock.ExitWriteLock();
             }
 
-            await SaveAsync(correlationId);
+            await SaveAsync(correlationId, token);
 
             return entity;
         }
 
-        public async Task<T> CreateAsync(string correlationId, T entity)
+        public async Task<T> CreateAsync(string correlationId, T entity, CancellationToken token)
         {
             var identifiable = entity as IStringIdentifiable;
             if (identifiable != null && entity.Id == null)
@@ -187,12 +209,12 @@ namespace PipServices.Data.Memory
                 Lock.ExitWriteLock();
             }
 
-            await SaveAsync(correlationId);
+            await SaveAsync(correlationId, token);
 
             return entity;
         }
 
-        public async Task<T> DeleteByIdAsync(string correlationId, TI id)
+        public async Task<T> DeleteByIdAsync(string correlationId, TI id, CancellationToken token)
         {
             Lock.EnterUpgradeableReadLock();
 
@@ -223,12 +245,12 @@ namespace PipServices.Data.Memory
                 Lock.ExitUpgradeableReadLock();
             }
 
-            await SaveAsync(correlationId);
+            //await SaveAsync(correlationId, token);
 
-            return entity;
+            return await Task.FromResult(entity);
         }
 
-        public async Task<T> UpdateAsync(string correlationId, T entity)
+        public async Task<T> UpdateAsync(string correlationId, T entity, CancellationToken token)
         {
             Lock.EnterWriteLock();
 
@@ -248,7 +270,7 @@ namespace PipServices.Data.Memory
                 Lock.ExitWriteLock();
             }
 
-            await SaveAsync(correlationId);
+            await SaveAsync(correlationId, token);
 
             return entity;
         }

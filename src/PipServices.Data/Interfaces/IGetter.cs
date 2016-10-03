@@ -1,11 +1,14 @@
-﻿using PipServices.Commons.Data;
+﻿using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using PipServices.Commons.Data;
 
 namespace PipServices.Data.Interfaces
 {
-    public interface IGetter<out T, in TI>
+    public interface IGetter<T, in TI>
         where T : IIdentifiable<TI>
         where TI : class
     {
-        T GetOneById(string correlationId, TI id);
+        Task<T> GetOneByIdAsync(string correlationId, TI id, CancellationToken token);
     }
 }
