@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
@@ -92,41 +91,30 @@ namespace PipServices.Data.Memory
             }
         }
 
-        public Task<IEnumerable<T>> GetAllAsync(string correlationId, CancellationToken token)
-        {
-            Lock.EnterReadLock();
-
-            try
-            {
-                Logger.Trace(correlationId, "Retrieved {0} of {1}", Items.Count, TypeName);
-
-                return Task.FromResult(Items as IEnumerable<T>);
-            }
-            finally
-            {
-                Lock.EnterReadLock();
-            }
-        }
-
         public Task OpenAsync(string correlationId, CancellationToken token)
         {
             return LoadAsync(correlationId);
         }
 
-        private async Task LoadAsync(string correlationId)
+        private Task LoadAsync(string correlationId)
         {
             if (_loader == null)
-                return;
+                return Task.CompletedTask;
 
             Lock.EnterWriteLock();
 
             try
             {
-                var loadedItems = await _loader.LoadAsync(correlationId);
+                var task = _loader.LoadAsync(correlationId);
+                task.Wait();
+
+                var loadedItems = task.Result;
 
                 Items = ImmutableList.CreateRange(loadedItems);
 
                 Logger.Trace(correlationId, "Loaded {0} of {1}", Items.Count, TypeName);
+
+                return Task.CompletedTask;
             }
             finally
             {

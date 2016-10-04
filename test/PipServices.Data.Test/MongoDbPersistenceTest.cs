@@ -4,13 +4,15 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using PipServices.Data.MongoDb;
+using PipServices.Commons.Config;
+using PipServices.Commons.Refer;
 using Xunit;
 
 namespace PipServices.Data.Test
 {
     public sealed class MongoDbPersistenceTest
     {
-        private static MongoDbPersistence<PersistenceFixture.Dummy, string> Db { get; } = new MongoDbPersistence<PersistenceFixture.Dummy, string>();
+        private static MongoDbPersistence<PersistenceFixture.Dummy, string> Db { get; } = new MongoDbPersistence<PersistenceFixture.Dummy, string>("dummies", new Descriptor("pip-services-data", "prsistance", "mongodb", "1.0"));
         private static PersistenceFixture Fixture { get; set; }
 
         private PersistenceFixture GetFixture()
@@ -23,13 +25,21 @@ namespace PipServices.Data.Test
             if (Db == null)
                 return;
 
-            var task = Db.ClearAsync(null, CancellationToken.None);
+            Db.Configure(ConfigParams.FromTuples(
+                "connection.type", "mongodb",
+                "connection.database", "test",
+                "connection.uri", ""));
+
+            var task = Db.OpenAsync(null, CancellationToken.None);
+            task.Wait();
+
+            task = Db.ClearAsync(null, CancellationToken.None);
             task.Wait();
 
             Fixture = GetFixture();
         }
 
-        //[Fact]
+        [Fact]
         public void TestCrudOperations()
         {
             if (Fixture == null) return;

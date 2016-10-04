@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using PipServices.Data.Memory;
+using PipServices.Commons.Config;
 using Xunit;
 
 namespace PipServices.Data.Test
@@ -23,7 +24,12 @@ namespace PipServices.Data.Test
             if (Db == null)
                 return;
 
-            var task = Db.ClearAsync(null, CancellationToken.None);
+            Db.Configure(new ConfigParams());
+
+            var task = Db.OpenAsync(null, CancellationToken.None);
+            task.Wait();
+
+            task = Db.ClearAsync(null, CancellationToken.None);
             task.Wait();
 
             Fixture = GetFixture();
