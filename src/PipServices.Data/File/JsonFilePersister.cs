@@ -53,7 +53,7 @@ namespace PipServices.Data.File
         {
             try
             {
-                using (var writer = new StreamWriter(System.IO.File.OpenWrite(Path)))
+                using (var writer = new StreamWriter(System.IO.File.Create(Path)))
                 {
                     var json = JsonConvert.SerializeObject(items.ToArray(), Formatting.Indented);
 

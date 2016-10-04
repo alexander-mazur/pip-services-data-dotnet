@@ -119,7 +119,7 @@ namespace PipServices.Data.Test
 
             for (var i = 0; i < itemNumber; i++)
             {
-                dummies.Add(new Dummy() { Id = i.ToString(), Key = "Key " + i, Content = "Content " + i });
+                dummies.Add(new Dummy() {Id = i.ToString(), Key = "Key " + i, Content = "Content " + i});
             }
 
             var count = 0;
@@ -153,28 +153,45 @@ namespace PipServices.Data.Test
                 Assert.Equal(updatedContent, dummy.Content);
             });
 
-            count = 0;
-            dummies.AsParallel().ForAll(async x =>
+            var taskList = new List<Task>();
+            foreach (var dummy in dummies)
             {
-                // Delete the dummy
-                await _write.DeleteByIdAsync(null, x.Id, cancellationToken);
-
-                // Try to get deleted dummy
-                var dummy = await _get.GetOneByIdAsync(null, x.Id, cancellationToken);
-                Assert.Null(dummy);
-
-                Interlocked.Increment(ref count);
-            });
-
-            while (count < itemNumber)
-            {
-                await Task.Delay(TimeSpan.FromMilliseconds(10), cancellationToken);
+                taskList.Add(AssertDelete(dummy, cancellationToken));
             }
+
+            Task.WaitAll(taskList.ToArray(), CancellationToken.None);
+
+            //count = 0;
+            //dummies.AsParallel().ForAll(async x =>
+            //{
+            //    // Delete the dummy
+            //    await _write.DeleteByIdAsync(null, x.Id, cancellationToken);
+
+            //    // Try to get deleted dummy
+            //    var dummy = await _get.GetOneByIdAsync(null, x.Id, cancellationToken);
+            //    Assert.Null(dummy);
+
+            //    Interlocked.Increment(ref count);
+            //});
+
+            //while (count < itemNumber)
+            //{
+            //    await Task.Delay(TimeSpan.FromMilliseconds(10), cancellationToken);
+            //}
 
             //dummiesResponce = await _get.GetAllAsync(null, cancellationToken);
             //Assert.NotNull(dummies);
             //Assert.Equal(0, dummiesResponce.Count());
             //Assert.Equal(0, dummiesResponce.Total);
+        }
+
+        private async Task AssertDelete(Dummy dummy, CancellationToken cancellationToken)
+        {
+            await _write.DeleteByIdAsync(null, dummy.Id, cancellationToken);
+
+            // Try to get deleted dummy
+            var result = await _get.GetOneByIdAsync(null, dummy.Id, cancellationToken);
+            Assert.Null(result);
         }
     }
 }

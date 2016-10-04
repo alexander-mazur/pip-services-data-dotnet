@@ -87,7 +87,7 @@ namespace PipServices.Data.Memory
             }
             finally
             {
-                Lock.EnterReadLock();
+                Lock.ExitReadLock();
             }
         }
 
@@ -122,22 +122,21 @@ namespace PipServices.Data.Memory
             }
         }
 
-        public async Task SaveAsync(string correlationId, CancellationToken token)
+        public Task SaveAsync(string correlationId, CancellationToken token)
         {
     	    if (_saver == null)
-                return;
+                return Task.CompletedTask;
 
             Lock.EnterWriteLock();
 
             try
             {
-                await _saver.SaveAsync(correlationId, Items);
+                var task = _saver.SaveAsync(correlationId, Items);
+                task.Wait(token);
 
                 Logger.Trace(correlationId, "Saved {0} of {1}", Items.Count, TypeName);
-            }
-            catch (Exception ex)
-            {
-                
+
+                return Task.CompletedTask;
             }
             finally
             {
@@ -204,36 +203,25 @@ namespace PipServices.Data.Memory
 
         public async Task<T> DeleteByIdAsync(string correlationId, TI id, CancellationToken token)
         {
-            Lock.EnterUpgradeableReadLock();
+            var entity = Items.Find(x => x.Id == id);
 
-            T entity;
+            if (entity == null)
+                return default(T);
+
+            Lock.EnterWriteLock();
 
             try
             {
-                entity = Items.Find(x => x.Id == id);
+                Items = Items.Remove(entity);
 
-                if (entity == null)
-                    return default(T);
-
-                Lock.EnterWriteLock();
-
-                try
-                {
-                    Items = Items.Remove(entity);
-
-                    Logger.Trace(correlationId, "Deleted {0}", entity);
-                }
-                finally
-                {
-                    Lock.ExitWriteLock();
-                }
+                Logger.Trace(correlationId, "Deleted {0}", entity);
             }
             finally
             {
-                Lock.ExitUpgradeableReadLock();
+                Lock.ExitWriteLock();
             }
 
-            //await SaveAsync(correlationId, token);
+            await SaveAsync(correlationId, token);
 
             return await Task.FromResult(entity);
         }

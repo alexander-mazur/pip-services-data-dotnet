@@ -8,7 +8,7 @@ namespace PipServices.Data.Test
 {
     public sealed class FilePersistenceTest
     {
-        private static FilePersistence<PersistenceFixture.Dummy, string> Db { get; } = new FilePersistence<PersistenceFixture.Dummy,string>(new JsonFilePersister<PersistenceFixture.Dummy>(nameof(FilePersistenceTest)));
+        private static FilePersistence<PersistenceFixture.Dummy, string> Db { get; } = new FilePersistence<PersistenceFixture.Dummy,string>(new JsonFilePersister<PersistenceFixture.Dummy>());
         private static PersistenceFixture Fixture { get; set; }
 
         private PersistenceFixture GetFixture()
@@ -21,7 +21,7 @@ namespace PipServices.Data.Test
             if (Db == null)
                 return;
 
-            Db.Configure(ConfigParams.FromTuples("path", "."));
+            Db.Configure(ConfigParams.FromTuples("path", nameof(FilePersistenceTest)));
 
             var task = Db.OpenAsync(null, CancellationToken.None);
             task.Wait();
@@ -41,7 +41,7 @@ namespace PipServices.Data.Test
             task.Wait();
         }
 
-        //[Fact]
+        [Fact]
         public void TestMultithreading()
         {
             if (Fixture == null) return;

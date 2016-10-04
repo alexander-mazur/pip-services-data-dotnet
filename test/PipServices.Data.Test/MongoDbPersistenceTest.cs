@@ -48,7 +48,7 @@ namespace PipServices.Data.Test
             task.Wait();
         }
 
-        //[Fact]
+        [Fact]
         public void TestMultithreading()
         {
             if (Fixture == null) return;
