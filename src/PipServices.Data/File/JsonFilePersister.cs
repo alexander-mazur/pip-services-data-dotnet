@@ -12,7 +12,7 @@ namespace PipServices.Data.File
 {
     public sealed class JsonFilePersister<T> : ILoader<T>, ISaver<T>, IConfigurable
     {
-        public string Path { get; set; }
+        public string Path { get; private set; }
 
         public JsonFilePersister()
             : this(null)
@@ -45,7 +45,7 @@ namespace PipServices.Data.File
             catch (Exception ex)
             {
                 throw new FileException(correlationId, "READ_FAILED", "Failed to read data file: " + Path, ex)
-                    .WithCause(ex.Message);
+                    .WithCause(ex);
             }
         }
 
@@ -63,7 +63,7 @@ namespace PipServices.Data.File
             catch (Exception ex)
             {
                 throw new FileException(correlationId, "WRITE_FAILED", "Failed to write data file: " + Path, ex)
-                    .WithCause(ex.Message);
+                    .WithCause(ex);
             }
         }
 
