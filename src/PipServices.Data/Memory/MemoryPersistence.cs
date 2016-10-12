@@ -1,4 +1,5 @@
-﻿using System.Collections.Immutable;
+﻿using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ using PipServices.Data.Interfaces;
 namespace PipServices.Data.Memory
 {
     public class MemoryPersistence<T, TI> : IReferenceable, IConfigurable, IOpenable, IClosable, ICleanable,
-        IWriter<T, TI>, IGetter<T, TI>, ISetter<T>
+        IWriter<T, TI>, IGetter<T, TI>, ISetter<T>, IQuerableReader<T>
         where T : IIdentifiable<TI>
         where TI : class
     {
@@ -248,6 +249,22 @@ namespace PipServices.Data.Memory
             await SaveAsync(correlationId, token);
 
             return entity;
+        }
+
+        public Task<IEnumerable<T>> GetListByFilterAsync(string correlationId, string query, SortParams sort, CancellationToken token)
+        {
+            Lock.EnterReadLock();
+
+            try
+            {
+                Logger.Trace(correlationId, "Retrieved {0} of {1}", Items.Count, TypeName);
+
+                return Task.FromResult((IEnumerable<T>)Items);
+            }
+            finally
+            {
+                Lock.ExitReadLock();
+            }
         }
     }
 }
