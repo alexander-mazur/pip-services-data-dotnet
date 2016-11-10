@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipServices.Commons.Dot", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipServices.Data.Dot", "src\PipServices.Data.Dot\PipServices.Data.Dot.csproj", "{98C2211F-5E2C-437A-B0F9-6F467ED0BDCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipServices.Data.Dot.Test", "test\PipServices.Data.Dot.Test\PipServices.Data.Dot.Test.csproj", "{46B3349B-03B0-4AE2-9068-F5F8409DED28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{98C2211F-5E2C-437A-B0F9-6F467ED0BDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98C2211F-5E2C-437A-B0F9-6F467ED0BDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98C2211F-5E2C-437A-B0F9-6F467ED0BDCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46B3349B-03B0-4AE2-9068-F5F8409DED28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B3349B-03B0-4AE2-9068-F5F8409DED28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B3349B-03B0-4AE2-9068-F5F8409DED28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B3349B-03B0-4AE2-9068-F5F8409DED28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +69,6 @@ Global
 		{C861B9F8-78CF-4F23-951D-4E14ED125B34} = {D78D7887-476C-40C7-9428-27C21B011565}
 		{C0DBD324-390F-4490-BF56-E778241D514D} = {9A4D7BB2-C696-42E3-BF44-3C1B2607B5D1}
 		{98C2211F-5E2C-437A-B0F9-6F467ED0BDCB} = {9A4D7BB2-C696-42E3-BF44-3C1B2607B5D1}
+		{46B3349B-03B0-4AE2-9068-F5F8409DED28} = {D78D7887-476C-40C7-9428-27C21B011565}
 	EndGlobalSection
 EndGlobal
