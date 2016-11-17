@@ -1,14 +1,13 @@
 ﻿using System.Threading;
-using System.Threading.Tasks;
-using PipServices.Data.File;
 using PipServices.Commons.Config;
+using PipServices.Data.Memory;
 using Xunit;
 
-namespace PipServices.Data.Test
+namespace PipServices.Data.Test.Memory
 {
-    public sealed class FilePersistenceTest
+    public sealed class MemoryPersistenceTest
     {
-        private static FilePersistence<PersistenceFixture.Dummy, string> Db { get; } = new FilePersistence<PersistenceFixture.Dummy,string>(new JsonFilePersister<PersistenceFixture.Dummy>());
+        private static MemoryPersistence<PersistenceFixture.Dummy, string> Db { get; } = new MemoryPersistence<PersistenceFixture.Dummy, string>();
         private static PersistenceFixture Fixture { get; set; }
 
         private PersistenceFixture GetFixture()
@@ -16,12 +15,12 @@ namespace PipServices.Data.Test
             return new PersistenceFixture(Db, Db, Db, Db, Db, Db, Db, Db);
         }
 
-        public FilePersistenceTest()
+        public MemoryPersistenceTest()
         {
             if (Db == null)
                 return;
 
-            Db.Configure(ConfigParams.FromTuples("path", nameof(FilePersistenceTest)));
+            Db.Configure(new ConfigParams());
 
             var task = Db.OpenAsync(null, CancellationToken.None);
             task.Wait();

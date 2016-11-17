@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using PipServices.Data.MongoDb;
+﻿using System.Threading;
+using PipServices.Data.Memory;
 using PipServices.Commons.Config;
-using PipServices.Commons.Refer;
 using Xunit;
 
-namespace PipServices.Data.Test
+namespace PipServices.Data.Test.Memory
 {
-    public sealed class MongoDbPersistenceTest
+    public sealed class MemoryPersistenceTest
     {
-        private static MongoDbPersistence<PersistenceFixture.Dummy, string> Db { get; } = new MongoDbPersistence<PersistenceFixture.Dummy, string>("dummies", new Descriptor("pip-services-data", "prsistance", "mongodb", "1.0"));
+        private static MemoryPersistence<PersistenceFixture.Dummy, string> Db { get; } = new MemoryPersistence<PersistenceFixture.Dummy, string>();
         private static PersistenceFixture Fixture { get; set; }
 
         private PersistenceFixture GetFixture()
@@ -20,15 +15,12 @@ namespace PipServices.Data.Test
             return new PersistenceFixture(Db, Db, Db, Db, Db, Db, Db, Db);
         }
 
-        public MongoDbPersistenceTest()
+        public MemoryPersistenceTest()
         {
             if (Db == null)
                 return;
 
-            Db.Configure(ConfigParams.FromTuples(
-                "connection.type", "mongodb",
-                "connection.database", "test",
-                "connection.uri", ""));
+            Db.Configure(new ConfigParams());
 
             var task = Db.OpenAsync(null, CancellationToken.None);
             task.Wait();

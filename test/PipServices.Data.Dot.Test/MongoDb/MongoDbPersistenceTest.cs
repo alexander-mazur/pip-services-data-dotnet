@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using PipServices.Data.MongoDb;
+﻿using System.Threading;
 using PipServices.Commons.Config;
 using PipServices.Commons.Refer;
+using PipServices.Data.MongoDb;
 using Xunit;
 
-namespace PipServices.Data.Test
+namespace PipServices.Data.Test.MongoDb
 {
     public sealed class MongoDbPersistenceTest
     {

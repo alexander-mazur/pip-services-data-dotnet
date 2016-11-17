@@ -3,7 +3,7 @@ using PipServices.Commons.Errors;
 using PipServices.Commons.Config;
 using Xunit;
 
-namespace PipServices.Data.Test
+namespace PipServices.Data.Test.File
 {
     public sealed class JsonFilePersisterTest
     {
