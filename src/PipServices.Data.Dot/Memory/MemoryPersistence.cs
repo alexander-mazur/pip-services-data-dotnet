@@ -239,7 +239,7 @@ namespace PipServices.Data.Memory
 
                 Items = Items.Replace(oldEntity, entity);
 
-                Logger.Trace(correlationId, "Update {0}", entity);
+                Logger.Trace(correlationId, "Updated {0}", entity);
             }
             finally
             {
@@ -251,7 +251,7 @@ namespace PipServices.Data.Memory
             return entity;
         }
 
-        public Task<IEnumerable<T>> GetListByFilterAsync(string correlationId, string query, SortParams sort, CancellationToken token)
+        public Task<IEnumerable<T>> GetListByQueryAsync(string correlationId, string query, SortParams sort, CancellationToken token)
         {
             Lock.EnterReadLock();
 

@@ -5,6 +5,6 @@ namespace PipServices.Data.Interfaces
 {
     public interface ISaver<in T>
     {
-        Task SaveAsync(string correlationId, IEnumerable<T> items);
+        Task SaveAsync(string correlationId, IEnumerable<T> entities);
     }
 }

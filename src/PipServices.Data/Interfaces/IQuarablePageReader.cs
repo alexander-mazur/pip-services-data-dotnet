@@ -5,6 +5,6 @@ namespace PipServices.Data.Interfaces
     public interface IQuarablePageReader<T>
         where T : class
     {
-        DataPage<T> GetPageByFilter(string correlationId, string query, PagingParams paging, SortParams sort);
+        DataPage<T> GetPageByQuery(string correlationId, string query, PagingParams paging, SortParams sort);
     }
 }

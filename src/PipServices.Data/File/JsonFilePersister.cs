@@ -49,13 +49,13 @@ namespace PipServices.Data.File
             }
         }
 
-        public async Task SaveAsync(string correlationId, IEnumerable<T> items)
+        public async Task SaveAsync(string correlationId, IEnumerable<T> entities)
         {
             try
             {
                 using (var writer = new StreamWriter(System.IO.File.Create(Path)))
                 {
-                    var json = JsonConvert.SerializeObject(items.ToArray(), Formatting.Indented);
+                    var json = JsonConvert.SerializeObject(entities.ToArray(), Formatting.Indented);
 
                     await writer.WriteAsync(json);
                 }

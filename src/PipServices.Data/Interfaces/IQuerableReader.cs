@@ -7,6 +7,6 @@ namespace PipServices.Data.Interfaces
 {
     public interface IQuerableReader<T>
     {
-        Task<IEnumerable<T>> GetListByFilterAsync(string correlationId, string query, SortParams sort, CancellationToken token);
+        Task<IEnumerable<T>> GetListByQueryAsync(string correlationId, string query, SortParams sort, CancellationToken token);
     }
 }
