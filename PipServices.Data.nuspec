@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PipServices.Data</id>
+    <version>1.0.0</version>
+    <title>PipServices.Data</title>
+    <authors>Sergey Seroukhov, Volodymyr Tkachenko</authors>
+    <owners>seroukhov</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Basic portable abstractions for Pip.Services in .NET</description>
+    <releaseNotes>Pre release</releaseNotes>
+    <copyright>Digital Living Software Corp. 2016</copyright>
+    <tags>pip-services microservices framework</tags>
+
+    <dependencies>
+      <group targetFramework="net">
+        <dependency id="Newtonsoft.Json" version="9.0" />
+        <dependency id="MongoDB.Bson" version="2.3.0" />
+        <dependency id="MongoDB.Driver" version="2.3.0" />
+        <dependency id="MongoDB.Driver.Core" version="2.3.0" />
+        <dependency id="System.Collections.Immutable" version="1.2.0" />
+        <dependency id="PipServices.Commons" version="1.0.1" />
+      </group>
+      <group targetFramework="netstandard">
+        <dependency id="NETStandard.Library" version="1.6.0" />
+        <dependency id="Newtonsoft.Json" version="9.0" />
+        <dependency id="MongoDB.Driver" version="2.3.0" />
+        <dependency id="System.Collections.Immutable" version="1.2.0" />
+        <dependency id="PipServices.Commons" version="1.0.1" />
+      </group>
+    </dependencies>
+  </metadata>
+
+  <files>
+    <file src="src\PipServices.Data.Netstandard16\bin\Release\netstandard1.6\PipServices.Data.deps.json" target="lib\netstandard1.6" />
+    <file src="src\PipServices.Data.Netstandard16\bin\Release\netstandard1.6\PipServices.Data.dll" target="lib\netstandard1.6" />
+    <file src="src\PipServices.Data.Netstandard16\bin\Release\netstandard1.6\PipServices.Data.pdb" target="lib\netstandard1.6" />
+    <file src="src\PipServices.Data.Net461\bin\Release\PipServices.Data.dll" target="lib\net461" />
+    <file src="src\PipServices.Data.Net461\bin\Release\PipServices.Data.pdb" target="lib\net461" />
+  </files>
+</package>

@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B728E84F-7408-4E0C-AB94-3DCDC0A6C035}"
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
+		PipServices.Data.nuspec = PipServices.Data.nuspec
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{6E957517-95EF-4CA3-B69D-62B708CA20D8}"
