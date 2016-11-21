@@ -18,13 +18,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{6E957517-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{D78D7887-476C-40C7-9428-27C21B011565}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PipServices.Data.Netstandard16", "src\PipServices.Data.Netstandard16\PipServices.Data.Netstandard16.xproj", "{FC371D4C-3D7C-4B20-B216-490FD41306ED}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PipServices.Data.NetStandard10", "src\PipServices.Data.NetStandard10\PipServices.Data.NetStandard10.xproj", "{FC371D4C-3D7C-4B20-B216-490FD41306ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipServices.Data.Net461", "src\PipServices.Data.Net461\PipServices.Data.Net461.csproj", "{98C2211F-5E2C-437A-B0F9-6F467ED0BDCB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipServices.Data.Net45", "src\PipServices.Data.Net45\PipServices.Data.Net45.csproj", "{98C2211F-5E2C-437A-B0F9-6F467ED0BDCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipServices.Data.Net461.Test", "test\PipServices.Data.Net461.Test\PipServices.Data.Net461.Test.csproj", "{46B3349B-03B0-4AE2-9068-F5F8409DED28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipServices.Data.Net45.Test", "test\PipServices.Data.Net45.Test\PipServices.Data.Net45.Test.csproj", "{46B3349B-03B0-4AE2-9068-F5F8409DED28}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PipServices.Data.Netstandard16.Test", "test\PipServices.Data.Netstandard16.Test\PipServices.Data.Netstandard16.Test.xproj", "{C861B9F8-78CF-4F23-951D-4E14ED125B34}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PipServices.Data.NetStandard10.Test", "test\PipServices.Data.NetStandard10.Test\PipServices.Data.NetStandard10.Test.xproj", "{C861B9F8-78CF-4F23-951D-4E14ED125B34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
