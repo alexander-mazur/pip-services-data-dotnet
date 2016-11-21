@@ -32,10 +32,10 @@
   </metadata>
 
   <files>
-    <file src="src\PipServices.Data.Netstandard16\bin\Release\netstandard1.6\PipServices.Data.deps.json" target="lib\netstandard1.6" />
-    <file src="src\PipServices.Data.Netstandard16\bin\Release\netstandard1.6\PipServices.Data.dll" target="lib\netstandard1.6" />
-    <file src="src\PipServices.Data.Netstandard16\bin\Release\netstandard1.6\PipServices.Data.pdb" target="lib\netstandard1.6" />
-    <file src="src\PipServices.Data.Net461\bin\Release\PipServices.Data.dll" target="lib\net461" />
-    <file src="src\PipServices.Data.Net461\bin\Release\PipServices.Data.pdb" target="lib\net461" />
+    <file src="src\PipServices.Data.NetStandard16\bin\Release\netstandard1.6\PipServices.Data.deps.json" target="lib\netstandard1.6" />
+    <file src="src\PipServices.Data.NetStandard16\bin\Release\netstandard1.6\PipServices.Data.dll" target="lib\netstandard1.6" />
+    <file src="src\PipServices.Data.NetStandard16\bin\Release\netstandard1.6\PipServices.Data.pdb" target="lib\netstandard1.6" />
+    <file src="src\PipServices.Data.Net45\bin\Release\PipServices.Data.dll" target="lib\net45" />
+    <file src="src\PipServices.Data.Net45\bin\Release\PipServices.Data.pdb" target="lib\net45" />
   </files>
 </package>
