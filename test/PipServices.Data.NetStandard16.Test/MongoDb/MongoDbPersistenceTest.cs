@@ -26,10 +26,10 @@ namespace PipServices.Data.Test.MongoDb
                 "connection.database", "test",
                 "connection.uri", ""));
 
-            var task = Db.OpenAsync(null, CancellationToken.None);
+            var task = Db.OpenAsync(null);
             task.Wait();
 
-            task = Db.ClearAsync(null, CancellationToken.None);
+            task = Db.ClearAsync(null);
             task.Wait();
 
             Fixture = GetFixture();

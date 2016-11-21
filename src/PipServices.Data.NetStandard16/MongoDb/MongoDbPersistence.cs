@@ -99,7 +99,7 @@ namespace PipServices.Data.MongoDb
             //    throw new ConfigError(this, "NoConnectionPort", "Connection port is not set");
         }
 
-        public Task OpenAsync(string correlationId, CancellationToken token)
+        public Task OpenAsync(string correlationId)
         {
             Logger.Trace(correlationId, "Component " + _descriptor + " opening");
 
@@ -131,14 +131,14 @@ namespace PipServices.Data.MongoDb
             }
         }
 
-        public Task CloseAsync(string correlationId, CancellationToken token)
+        public Task CloseAsync(string correlationId)
         {
             return Task.CompletedTask;
         }
 
-        public Task ClearAsync(string correlationId, CancellationToken token)
+        public Task ClearAsync(string correlationId)
         {
-            return Database.DropCollectionAsync(_collectionName, token);
+            return Database.DropCollectionAsync(_collectionName, CancellationToken.None);
         }
 
         public async Task<T> CreateAsync(string correlationId, T entity, CancellationToken token)

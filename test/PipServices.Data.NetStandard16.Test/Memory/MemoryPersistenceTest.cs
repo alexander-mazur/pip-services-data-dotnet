@@ -22,10 +22,10 @@ namespace PipServices.Data.Test.Memory
 
             Db.Configure(new ConfigParams());
 
-            var task = Db.OpenAsync(null, CancellationToken.None);
+            var task = Db.OpenAsync(null);
             task.Wait();
 
-            task = Db.ClearAsync(null, CancellationToken.None);
+            task = Db.ClearAsync(null);
             task.Wait();
 
             Fixture = GetFixture();

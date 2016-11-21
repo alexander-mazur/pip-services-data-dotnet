@@ -42,7 +42,7 @@ namespace PipServices.Data.Memory
             _saver = saver;
         }
 
-        public async Task ClearAsync(string correlationId, CancellationToken token)
+        public async Task ClearAsync(string correlationId)
         {
             Lock.EnterWriteLock();
 
@@ -52,7 +52,7 @@ namespace PipServices.Data.Memory
 
                 Logger.Trace(correlationId, "Cleared {0}", TypeName);
 
-                await SaveAsync(correlationId, token);
+                await SaveAsync(correlationId, CancellationToken.None);
             }
             finally
             {
@@ -60,9 +60,9 @@ namespace PipServices.Data.Memory
             }
         }
 
-        public Task CloseAsync(string correlationId, CancellationToken token)
+        public Task CloseAsync(string correlationId)
         {
-            return SaveAsync(correlationId, token);
+            return SaveAsync(correlationId, CancellationToken.None);
         }
 
         public virtual void Configure(ConfigParams config)
@@ -91,7 +91,7 @@ namespace PipServices.Data.Memory
             }
         }
 
-        public Task OpenAsync(string correlationId, CancellationToken token)
+        public Task OpenAsync(string correlationId)
         {
             return LoadAsync(correlationId);
         }

@@ -1,10 +1,9 @@
 ﻿using System.Threading;
-using System.Threading.Tasks;
 using PipServices.Data.File;
 using PipServices.Commons.Config;
 using Xunit;
 
-namespace PipServices.Data.Test
+namespace PipServices.Data.Test.File
 {
     public sealed class FilePersistenceTest
     {
@@ -23,10 +22,10 @@ namespace PipServices.Data.Test
 
             Db.Configure(ConfigParams.FromTuples("path", nameof(FilePersistenceTest)));
 
-            var task = Db.OpenAsync(null, CancellationToken.None);
+            var task = Db.OpenAsync(null);
             task.Wait();
 
-            task = Db.ClearAsync(null, CancellationToken.None);
+            task = Db.ClearAsync(null);
             task.Wait();
 
             Fixture = GetFixture();

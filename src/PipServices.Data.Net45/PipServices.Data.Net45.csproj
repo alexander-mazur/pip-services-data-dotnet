@@ -47,8 +47,8 @@
       <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="PipServices.Commons, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\PipServices.Commons.1.0.1\lib\net461\PipServices.Commons.dll</HintPath>
+    <Reference Include="PipServices.Commons, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PipServices.Commons.1.0.3\lib\net45\PipServices.Commons.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -69,25 +69,54 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="File\FilePersistence.cs" />
-    <Compile Include="File\JsonFilePersister.cs" />
-    <Compile Include="Interfaces\IDynamicWriter.cs" />
-    <Compile Include="Interfaces\IFilteredPageReader.cs" />
-    <Compile Include="Interfaces\IFilteredReader.cs" />
-    <Compile Include="Interfaces\IGetter.cs" />
-    <Compile Include="Interfaces\ILoader.cs" />
-    <Compile Include="Interfaces\IQuarablePageReader.cs" />
-    <Compile Include="Interfaces\IQuerableReader.cs" />
-    <Compile Include="Interfaces\ISaver.cs" />
-    <Compile Include="Interfaces\ISetter.cs" />
-    <Compile Include="Interfaces\IWriter.cs" />
-    <Compile Include="Memory\MemoryPersistence.cs" />
-    <Compile Include="MongoDb\MongoDbPersistence.cs" />
+    <Compile Include="..\PipServices.Data.Netstandard16\File\FilePersistence.cs">
+      <Link>File\FilePersistence.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\File\JsonFilePersister.cs">
+      <Link>File\JsonFilePersister.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IDynamicWriter.cs">
+      <Link>Interfaces\IDynamicWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IFilteredPageReader.cs">
+      <Link>Interfaces\IFilteredPageReader.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IFilteredReader.cs">
+      <Link>Interfaces\IFilteredReader.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IGetter.cs">
+      <Link>Interfaces\IGetter.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\ILoader.cs">
+      <Link>Interfaces\ILoader.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IQuarablePageReader.cs">
+      <Link>Interfaces\IQuarablePageReader.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IQuerableReader.cs">
+      <Link>Interfaces\IQuerableReader.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\ISaver.cs">
+      <Link>Interfaces\ISaver.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\ISetter.cs">
+      <Link>Interfaces\ISetter.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IWriter.cs">
+      <Link>Interfaces\IWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\Memory\MemoryPersistence.cs">
+      <Link>Memory\MemoryPersistence.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.Netstandard16\MongoDb\MongoDbPersistence.cs">
+      <Link>MongoDb\MongoDbPersistence.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
