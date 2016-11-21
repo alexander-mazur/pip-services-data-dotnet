@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PipServices.Data.Interfaces
+namespace PipServices.Data
 {
     public interface ISaver<in T>
     {

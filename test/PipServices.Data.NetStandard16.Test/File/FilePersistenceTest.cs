@@ -37,7 +37,7 @@ namespace PipServices.Data.Test.File
         {
             if (Fixture == null) return;
 
-            var task = Fixture.TestCrudOperationsAsync(CancellationToken.None);
+            var task = Fixture.TestCrudOperationsAsync();
             task.Wait();
         }
 
@@ -46,7 +46,7 @@ namespace PipServices.Data.Test.File
         {
             if (Fixture == null) return;
 
-            var task = Fixture.TestMultithreading(CancellationToken.None);
+            var task = Fixture.TestMultithreading();
             task.Wait();
         }
 

@@ -8,7 +8,8 @@ namespace PipServices.Data.Test.MongoDb
 {
     public sealed class MongoDbPersistenceTest
     {
-        private static MongoDbPersistence<PersistenceFixture.Dummy, string> Db { get; } = new MongoDbPersistence<PersistenceFixture.Dummy, string>("dummies", new Descriptor("pip-services-data", "prsistance", "mongodb", "1.0"));
+        private static MongoDbPersistence<PersistenceFixture.Dummy, string> Db { get; } 
+            = new MongoDbPersistence<PersistenceFixture.Dummy, string>("dummies");
         private static PersistenceFixture Fixture { get; set; }
 
         private PersistenceFixture GetFixture()
@@ -40,7 +41,7 @@ namespace PipServices.Data.Test.MongoDb
         {
             if (Fixture == null) return;
 
-            var task = Fixture.TestCrudOperationsAsync(CancellationToken.None);
+            var task = Fixture.TestCrudOperationsAsync();
             task.Wait();
         }
 
@@ -49,7 +50,7 @@ namespace PipServices.Data.Test.MongoDb
         {
             if (Fixture == null) return;
 
-            var task = Fixture.TestMultithreading(CancellationToken.None);
+            var task = Fixture.TestMultithreading();
             task.Wait();
         }
     }

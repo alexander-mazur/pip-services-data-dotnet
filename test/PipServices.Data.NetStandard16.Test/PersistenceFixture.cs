@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using PipServices.Data.Interfaces;
+using PipServices.Data;
 using PipServices.Commons.Data;
 using PipServices.Commons.Refer;
 using PipServices.Commons.Config;
@@ -70,10 +70,10 @@ namespace PipServices.Data.Test
             _set = set;
         }
 
-        public async Task TestCrudOperationsAsync(CancellationToken cancellationToken)
+        public async Task TestCrudOperationsAsync()
         {
             // Create one dummy
-            var dummy1 = await _write.CreateAsync(null, _dummy1, cancellationToken);
+            var dummy1 = await _write.CreateAsync(null, _dummy1);
 
             Assert.NotNull(dummy1);
             Assert.NotNull(dummy1.Id);
@@ -81,7 +81,7 @@ namespace PipServices.Data.Test
             Assert.Equal(_dummy1.Content, dummy1.Content);
 
             // Create another dummy
-            var dummy2 = await _write.CreateAsync(null, _dummy2, cancellationToken);
+            var dummy2 = await _write.CreateAsync(null, _dummy2);
 
             Assert.NotNull(dummy2);
             Assert.NotNull(dummy2.Id);
@@ -89,13 +89,13 @@ namespace PipServices.Data.Test
             Assert.Equal(_dummy2.Content, dummy2.Content);
 
             //// Get all dummies
-            //var dummies = await _get.GetAllAsync(null, cancellationToken);
+            //var dummies = await _get.GetAllAsync(null);
             //Assert.NotNull(dummies);
             //Assert.Equal(2, dummies.Count());
 
             // Update the dummy
             dummy1.Content = "Updated Content 1";
-            var dummy = await _write.UpdateAsync(null, dummy1, cancellationToken);
+            var dummy = await _write.UpdateAsync(null, dummy1);
 
             Assert.NotNull(dummy);
             Assert.Equal(dummy1.Id, dummy.Id);
@@ -103,14 +103,14 @@ namespace PipServices.Data.Test
             Assert.Equal(dummy1.Content, dummy.Content);
 
             // Delete the dummy
-            await _write.DeleteByIdAsync(null, dummy1.Id, cancellationToken);
+            await _write.DeleteByIdAsync(null, dummy1.Id);
 
             // Try to get deleted dummy
-            dummy = await _get.GetOneByIdAsync(null, dummy1.Id, cancellationToken);
+            dummy = await _get.GetOneByIdAsync(null, dummy1.Id);
             Assert.Null(dummy);
         }
 
-        public async Task TestMultithreading(CancellationToken cancellationToken)
+        public async Task TestMultithreading()
         {
             const int itemNumber = 50;
 
@@ -124,16 +124,16 @@ namespace PipServices.Data.Test
             var count = 0;
             dummies.AsParallel().ForAll(async x =>
             {
-                await _write.CreateAsync(null, x, cancellationToken);
+                await _write.CreateAsync(null, x);
                 Interlocked.Increment(ref count);
             });
 
             while (count < itemNumber)
             {
-                await Task.Delay(TimeSpan.FromMilliseconds(10), cancellationToken);
+                await Task.Delay(TimeSpan.FromMilliseconds(10));
             }
 
-            //var dummiesResponce = await _get.GetAllAsync(null, cancellationToken);
+            //var dummiesResponce = await _get.GetAllAsync(null);
             //Assert.NotNull(dummies);
             //Assert.Equal(itemNumber, dummiesResponce.Count());
             //Assert.Equal(itemNumber, dummiesResponce.Total);
@@ -144,7 +144,7 @@ namespace PipServices.Data.Test
 
                 // Update the dummy
                 x.Content = updatedContent;
-                var dummy = await _write.UpdateAsync(null, x, cancellationToken);
+                var dummy = await _write.UpdateAsync(null, x);
 
                 Assert.NotNull(dummy);
                 Assert.Equal(x.Id, dummy.Id);
@@ -155,7 +155,7 @@ namespace PipServices.Data.Test
             var taskList = new List<Task>();
             foreach (var dummy in dummies)
             {
-                taskList.Add(AssertDelete(dummy, cancellationToken));
+                taskList.Add(AssertDelete(dummy));
             }
 
             Task.WaitAll(taskList.ToArray(), CancellationToken.None);
@@ -164,10 +164,10 @@ namespace PipServices.Data.Test
             //dummies.AsParallel().ForAll(async x =>
             //{
             //    // Delete the dummy
-            //    await _write.DeleteByIdAsync(null, x.Id, cancellationToken);
+            //    await _write.DeleteByIdAsync(null, x.Id);
 
             //    // Try to get deleted dummy
-            //    var dummy = await _get.GetOneByIdAsync(null, x.Id, cancellationToken);
+            //    var dummy = await _get.GetOneByIdAsync(null, x.Id);
             //    Assert.Null(dummy);
 
             //    Interlocked.Increment(ref count);
@@ -175,21 +175,21 @@ namespace PipServices.Data.Test
 
             //while (count < itemNumber)
             //{
-            //    await Task.Delay(TimeSpan.FromMilliseconds(10), cancellationToken);
+            //    await Task.Delay(TimeSpan.FromMilliseconds(10));
             //}
 
-            //dummiesResponce = await _get.GetAllAsync(null, cancellationToken);
+            //dummiesResponce = await _get.GetAllAsync(null);
             //Assert.NotNull(dummies);
             //Assert.Equal(0, dummiesResponce.Count());
             //Assert.Equal(0, dummiesResponce.Total);
         }
 
-        private async Task AssertDelete(Dummy dummy, CancellationToken cancellationToken)
+        private async Task AssertDelete(Dummy dummy)
         {
-            await _write.DeleteByIdAsync(null, dummy.Id, cancellationToken);
+            await _write.DeleteByIdAsync(null, dummy.Id);
 
             // Try to get deleted dummy
-            var result = await _get.GetOneByIdAsync(null, dummy.Id, cancellationToken);
+            var result = await _get.GetOneByIdAsync(null, dummy.Id);
             Assert.Null(result);
         }
     }

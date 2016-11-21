@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using PipServices.Commons.Config;
+using PipServices.Commons.Errors;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using PipServices.Commons.Config;
-using PipServices.Commons.Errors;
-using PipServices.Data.Interfaces;
 
 namespace PipServices.Data.File
 {
@@ -24,7 +23,7 @@ namespace PipServices.Data.File
             Path = path;
         }
 
-        public async Task<IEnumerable<T>> LoadAsync(string correlationId)
+        public async Task<List<T>> LoadAsync(string correlationId)
         {
             if (!System.IO.File.Exists(Path))
             {
