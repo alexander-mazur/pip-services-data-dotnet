@@ -7,7 +7,7 @@
     <authors>Sergey Seroukhov, Volodymyr Tkachenko</authors>
     <owners>seroukhov</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Basic portable abstractions for Pip.Services in .NET</description>
+    <description>Data processing and persistence components for Pip.Services in .NET</description>
     <releaseNotes>Pre release</releaseNotes>
     <copyright>Digital Living Software Corp. 2016</copyright>
     <tags>pip-services microservices framework</tags>
