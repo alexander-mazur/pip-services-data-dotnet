@@ -1,11 +1,12 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using PipServices.Data.File;
 using PipServices.Commons.Config;
 using Xunit;
 
 namespace PipServices.Data.Test.File
 {
-    public sealed class FilePersistenceTest
+    public sealed class FilePersistenceTest : IDisposable
     {
         private static FilePersistence<PersistenceFixture.Dummy, string> Db { get; } = new FilePersistence<PersistenceFixture.Dummy,string>(new JsonFilePersister<PersistenceFixture.Dummy>());
         private static PersistenceFixture Fixture { get; set; }
@@ -46,6 +47,12 @@ namespace PipServices.Data.Test.File
             if (Fixture == null) return;
 
             var task = Fixture.TestMultithreading(CancellationToken.None);
+            task.Wait();
+        }
+
+        public void Dispose()
+        {
+            var task = Db.CloseAsync(null);
             task.Wait();
         }
     }

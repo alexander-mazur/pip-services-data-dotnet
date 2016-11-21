@@ -121,9 +121,9 @@ namespace PipServices.Data.MongoDb
                 Database = Connection.GetDatabase(DatabaseName);
                 Collection = Database.GetCollection<T>(_collectionName);
 
-                Logger.Trace(correlationId, "Component " + _descriptor + " opened"); 
+                Logger.Trace(correlationId, "Component " + _descriptor + " opened");
 
-                return Task.CompletedTask;
+                return Task.Delay(0);
             }
             catch (Exception)
             {
@@ -133,7 +133,7 @@ namespace PipServices.Data.MongoDb
 
         public Task CloseAsync(string correlationId)
         {
-            return Task.CompletedTask;
+            return Task.Delay(0);
         }
 
         public Task ClearAsync(string correlationId)

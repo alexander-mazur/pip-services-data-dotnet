@@ -99,7 +99,7 @@ namespace PipServices.Data.Memory
         private Task LoadAsync(string correlationId)
         {
             if (_loader == null)
-                return Task.CompletedTask;
+                return Task.Delay(0);
 
             Lock.EnterWriteLock();
 
@@ -114,7 +114,7 @@ namespace PipServices.Data.Memory
 
                 Logger.Trace(correlationId, "Loaded {0} of {1}", Items.Count, TypeName);
 
-                return Task.CompletedTask;
+                return Task.Delay(0);
             }
             finally
             {
@@ -125,7 +125,7 @@ namespace PipServices.Data.Memory
         public Task SaveAsync(string correlationId, CancellationToken token)
         {
     	    if (_saver == null)
-                return Task.CompletedTask;
+                return Task.Delay(0, token);
 
             Lock.EnterWriteLock();
 
@@ -136,7 +136,7 @@ namespace PipServices.Data.Memory
 
                 Logger.Trace(correlationId, "Saved {0} of {1}", Items.Count, TypeName);
 
-                return Task.CompletedTask;
+                return Task.Delay(0, token);
             }
             finally
             {
