@@ -55,29 +55,35 @@ namespace PipServices.Data.Memory
             MaxPageSize = config.GetAsIntegerWithDefault("max_page_size", DefaultMaxPageSize);
         }
 
-        public async Task OpenAsync(string correlationId)
+        public Task OpenAsync(string correlationId)
         {
-            await LoadAsync(correlationId);
+            return LoadAsync(correlationId);
         }
 
-        public async Task CloseAsync(string correlationId)
+        public Task CloseAsync(string correlationId)
         {
-            await SaveAsync(correlationId);
+            return SaveAsync(correlationId);
         }
 
-        private async Task LoadAsync(string correlationId)
+        private Task LoadAsync(string correlationId)
         {
-            if (_loader == null) return;
-
+            if (_loader == null)
+                return Task.Delay(0);
+            
             Lock.EnterWriteLock();
 
             try
             {
-                var loadedItems = await _loader.LoadAsync(correlationId);
+                var task = _loader.LoadAsync(correlationId);
+                task.Wait();
+
+                var loadedItems = task.Result;
 
                 Items = ImmutableList.CreateRange(loadedItems);
 
                 Logger.Trace(correlationId, "Loaded {0} of {1}", Items.Count, TypeName);
+
+                return Task.Delay(0);
             }
             finally
             {
@@ -85,7 +91,7 @@ namespace PipServices.Data.Memory
             }
         }
 
-        public async Task<List<T>> GetListByQueryAsync(string correlationId, string query, SortParams sort)
+        public Task<List<T>> GetListByQueryAsync(string correlationId, string query, SortParams sort)
         {
             Lock.EnterReadLock();
 
@@ -93,7 +99,7 @@ namespace PipServices.Data.Memory
             {
                 Logger.Trace(correlationId, "Retrieved {0} of {1}", Items.Count, TypeName);
 
-                return await Task.FromResult(new List<T>(Items));
+                return Task.FromResult(new List<T>(Items));
             }
             finally
             {
@@ -101,7 +107,7 @@ namespace PipServices.Data.Memory
             }
         }
 
-        public async Task<T> GetOneByIdAsync(string correlationId, K id)
+        public Task<T> GetOneByIdAsync(string correlationId, K id)
         {
             Lock.EnterReadLock();
 
@@ -114,7 +120,7 @@ namespace PipServices.Data.Memory
                 else
                     Logger.Trace(correlationId, "Cannot find {0} by {1}", TypeName, id);
 
-                return await Task.FromResult(item);
+                return Task.FromResult(item);
             }
             finally
             {
@@ -122,17 +128,21 @@ namespace PipServices.Data.Memory
             }
         }
 
-        public async Task SaveAsync(string correlationId)
+        public Task SaveAsync(string correlationId)
         {
-    	    if (_saver == null) return;
+    	    if (_saver == null)
+                return Task.Delay(0);
 
             Lock.EnterWriteLock();
 
             try
             {
-                await _saver.SaveAsync(correlationId, Items);
+                var task = _saver.SaveAsync(correlationId, Items);
+                task.Wait();
 
                 Logger.Trace(correlationId, "Saved {0} of {1}", Items.Count, TypeName);
+
+                return Task.Delay(0);
             }
             finally
             {
@@ -240,7 +250,7 @@ namespace PipServices.Data.Memory
             return await Task.FromResult(entity);
         }
 
-        public async Task ClearAsync(string correlationId)
+        public Task ClearAsync(string correlationId)
         {
             Lock.EnterWriteLock();
 
@@ -250,7 +260,7 @@ namespace PipServices.Data.Memory
 
                 Logger.Trace(correlationId, "Cleared {0}", TypeName);
 
-                await SaveAsync(correlationId);
+                return SaveAsync(correlationId);
             }
             finally
             {
