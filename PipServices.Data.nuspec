@@ -5,7 +5,6 @@
     <version>1.0.2</version>
     <title>PipServices.Data</title>
     <authors>Sergey Seroukhov, Volodymyr Tkachenko</authors>
-    <owners>seroukhov</owners>
 
     <projectUrl>https://github.com/pip-services/pip-services-data-dotnet</projectUrl>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>

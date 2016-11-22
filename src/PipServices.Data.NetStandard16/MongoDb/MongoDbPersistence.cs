@@ -126,9 +126,9 @@ namespace PipServices.Data.MongoDb
             }
         }
 
-        public async Task CloseAsync(string correlationId)
+        public Task CloseAsync(string correlationId)
         {
-            await Task.Delay(0);
+            return Task.Delay(0);
         }
 
         public async Task<T> GetOneByIdAsync(string correlationId, K id)
@@ -204,10 +204,9 @@ namespace PipServices.Data.MongoDb
             return result;
         }
 
-        public async Task ClearAsync(string correlationId)
+        public Task ClearAsync(string correlationId)
         {
-            await Database.DropCollectionAsync(_collectionName);
+            return Database.DropCollectionAsync(_collectionName);
         }
-
     }
 }
