@@ -2,11 +2,16 @@
 <package >
   <metadata>
     <id>PipServices.Data</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <title>PipServices.Data</title>
     <authors>Sergey Seroukhov, Volodymyr Tkachenko</authors>
     <owners>seroukhov</owners>
+
+    <projectUrl>https://github.com/pip-services/pip-services-data-dotnet</projectUrl>
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <iconUrl>https://raw.githubusercontent.com/pip-services/pip-services/master/design/Icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
     <description>Data processing and persistence components for Pip.Services in .NET</description>
     <releaseNotes>Pre release</releaseNotes>
     <copyright>Digital Living Software Corp. 2016</copyright>
@@ -19,14 +24,14 @@
         <dependency id="MongoDB.Driver" version="2.3.0" />
         <dependency id="MongoDB.Driver.Core" version="2.3.0" />
         <dependency id="System.Collections.Immutable" version="1.2.0" />
-        <dependency id="PipServices.Commons" version="1.0.3" />
+        <dependency id="PipServices.Commons" version="1.0.9" />
       </group>
       <group targetFramework="netstandard">
         <dependency id="NETStandard.Library" version="1.6.0" />
         <dependency id="Newtonsoft.Json" version="9.0" />
         <dependency id="MongoDB.Driver" version="2.3.0" />
         <dependency id="System.Collections.Immutable" version="1.2.0" />
-        <dependency id="PipServices.Commons" version="1.0.3" />
+        <dependency id="PipServices.Commons" version="1.0.9" />
       </group>
     </dependencies>
   </metadata>
