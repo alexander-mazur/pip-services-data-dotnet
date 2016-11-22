@@ -1,9 +1,15 @@
 {
-  "buildOptions": {
-    "outputName": "PipServices.Data"
-  },
-
   "version": "1.0.2",
+
+  "copyright": "Copyright © Digital Living Software Corp. 2009-2016",
+  "title": "Pip.Services Data Library",
+  "authors": [ "Sergey Seroukhov", "Volodymyr Tkachenko" ],
+  "description": "Data processing and persistence components for Pip.Services in .NET",
+
+  "buildOptions": {
+    "outputName": "PipServices.Data",
+    "define": [ "CORE_NET" ]
+  },
 
   "dependencies": {
     "MongoDB.Driver": "2.3.0",
