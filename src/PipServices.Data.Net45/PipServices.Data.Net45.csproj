@@ -75,35 +75,35 @@
     <Compile Include="..\PipServices.Data.Netstandard16\File\JsonFilePersister.cs">
       <Link>File\JsonFilePersister.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IDynamicWriter.cs">
-      <Link>Interfaces\IDynamicWriter.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\IDynamicWriter.cs">
+      <Link>IDynamicWriter.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IFilteredPageReader.cs">
-      <Link>Interfaces\IFilteredPageReader.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\IFilteredPageReader.cs">
+      <Link>IFilteredPageReader.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IFilteredReader.cs">
-      <Link>Interfaces\IFilteredReader.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\IFilteredReader.cs">
+      <Link>IFilteredReader.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IGetter.cs">
-      <Link>Interfaces\IGetter.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\IGetter.cs">
+      <Link>IGetter.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\ILoader.cs">
-      <Link>Interfaces\ILoader.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\ILoader.cs">
+      <Link>ILoader.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IQuarablePageReader.cs">
-      <Link>Interfaces\IQuarablePageReader.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\IQuarablePageReader.cs">
+      <Link>IQuarablePageReader.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IQuerableReader.cs">
-      <Link>Interfaces\IQuerableReader.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\IQuerableReader.cs">
+      <Link>IQuerableReader.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\ISaver.cs">
-      <Link>Interfaces\ISaver.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\ISaver.cs">
+      <Link>ISaver.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\ISetter.cs">
-      <Link>Interfaces\ISetter.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\ISetter.cs">
+      <Link>ISetter.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16\Interfaces\IWriter.cs">
-      <Link>Interfaces\IWriter.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16\IWriter.cs">
+      <Link>IWriter.cs</Link>
     </Compile>
     <Compile Include="..\PipServices.Data.Netstandard16\Memory\MemoryPersistence.cs">
       <Link>Memory\MemoryPersistence.cs</Link>

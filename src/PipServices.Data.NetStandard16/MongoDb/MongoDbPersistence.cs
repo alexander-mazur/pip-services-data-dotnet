@@ -1,24 +1,21 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using PipServices.Commons.Config;
 using PipServices.Commons.Data;
 using PipServices.Commons.Errors;
+using PipServices.Commons.Log;
 using PipServices.Commons.Refer;
 using PipServices.Commons.Run;
-using PipServices.Commons.Log;
-using PipServices.Data.Interfaces;
+using System;
+using System.Threading.Tasks;
 
 namespace PipServices.Data.MongoDb
 {
-    public class MongoDbPersistence<T, TI> : IReferenceable, IConfigurable, IOpenable, IClosable, ICleanable,
-        IWriter<T, TI>, IGetter<T, TI>, ISetter<T>, IDescriptable
-        where T : IIdentifiable<TI>
-        where TI : class
+    public class MongoDbPersistence<T, K> : IReferenceable, IConfigurable, IOpenable, IClosable, ICleanable,
+        IWriter<T, K>, IGetter<T, K>, ISetter<T>
+        where T : IIdentifiable<K>
+        where K : class
     {
         private readonly string _collectionName;
-        private readonly Descriptor _descriptor;
 
         private const string DefaultHost = "localhost";
         private const int DefaultPort = 27017;
@@ -46,19 +43,17 @@ namespace PipServices.Data.MongoDb
 
         protected ILogger Logger = new NullLogger();
 
-        public MongoDbPersistence(string collectionName, Descriptor descriptor)
+        public MongoDbPersistence(string collectionName)
         {
             if (string.IsNullOrWhiteSpace(collectionName))
                 throw new ArgumentNullException(nameof(collectionName));
-            if (descriptor == null)
-                throw new ArgumentNullException(nameof(descriptor));
 
             _collectionName = collectionName;
-            _descriptor = descriptor;
         }
 
         public void SetReferences(IReferences references)
         {
+            // Todo: use composite logger
             var logger = (ILogger)references.GetOneOptional(new Descriptor("*", "logger", "*", "*"));
 
             Logger = logger ?? Logger;
@@ -66,6 +61,8 @@ namespace PipServices.Data.MongoDb
 
         public void Configure(ConfigParams config)
         {
+            // Todo: Use connection and auth components
+
             var connectionType = config.GetAsNullableString("connection.type");
             DatabaseName = config.GetAsNullableString("connection.database");
             //Uri = config.GetAsNullableString("connection.uri");
@@ -101,8 +98,6 @@ namespace PipServices.Data.MongoDb
 
         public Task OpenAsync(string correlationId)
         {
-            Logger.Trace(correlationId, "Component " + _descriptor + " opening");
-
             Logger.Trace(correlationId, "Connecting to mongodb database {0}, collection {1}", DatabaseName, _collectionName);
 
             try
@@ -121,7 +116,7 @@ namespace PipServices.Data.MongoDb
                 Database = Connection.GetDatabase(DatabaseName);
                 Collection = Database.GetCollection<T>(_collectionName);
 
-                Logger.Trace(correlationId, "Component " + _descriptor + " opened");
+                Logger.Debug(correlationId, "Connected to mongodb database {0}, collection {1}", DatabaseName, _collectionName);
 
                 return Task.Delay(0);
             }
@@ -131,100 +126,88 @@ namespace PipServices.Data.MongoDb
             }
         }
 
-        public Task CloseAsync(string correlationId)
+        public async Task CloseAsync(string correlationId)
         {
-            return Task.Delay(0);
+            await Task.Delay(0);
         }
 
-        public Task ClearAsync(string correlationId)
+        public async Task<T> GetOneByIdAsync(string correlationId, K id)
         {
-            return Database.DropCollectionAsync(_collectionName, CancellationToken.None);
+            var builder = Builders<T>.Filter;
+            var filter = builder.Eq(x => x.Id, id);
+            var result = await Collection.Find(filter).FirstOrDefaultAsync();
+
+            Logger.Trace(correlationId, "Retrieved from {0} with id = {1}", _collectionName, id);
+
+            return result;
         }
 
-        public async Task<T> CreateAsync(string correlationId, T entity, CancellationToken token)
+        public async Task<T> CreateAsync(string correlationId, T entity)
         {
             var identifiable = entity as IStringIdentifiable;
             if (identifiable != null && entity.Id == null)
                 identifiable.Id = IdGenerator.NextLong();
 
-            await Collection.InsertOneAsync(entity, null, token);
+            await Collection.InsertOneAsync(entity, null);
 
             Logger.Trace(correlationId, "Created in {0} with id = {1}", _collectionName, entity.Id);
 
             return entity;
         }
 
-        public Task<T> UpdateAsync(string correlationId, T entity, CancellationToken token)
+        public async Task<T> UpdateAsync(string correlationId, T entity)
         {
-            var identifiable = entity as IIdentifiable<TI>;
+            var identifiable = entity as IIdentifiable<K>;
             if (identifiable == null || entity.Id == null)
-                return Task.FromResult(default(T));
+                return default(T);
 
             var filter = Builders<T>.Filter.Eq(x => x.Id, identifiable.Id);
-
             var options = new FindOneAndReplaceOptions<T>
             {
                 ReturnDocument = ReturnDocument.After,
                 IsUpsert = false
             };
-
-            var task = Collection.FindOneAndReplaceAsync(filter, entity, options, token);
+            var result = await Collection.FindOneAndReplaceAsync(filter, entity, options);
 
             Logger.Trace(correlationId, "Update in {0} with id = {1}", _collectionName, entity.Id);
 
-            return task;
+            return result;
         }
 
-        public Task<T> DeleteByIdAsync(string correlationId, TI id, CancellationToken token)
+        public async Task<T> SetAsync(string correlationId, T entity)
         {
-            var filter = Builders<T>.Filter.Eq(x => x.Id, id);
-
-            var options = new FindOneAndDeleteOptions<T>();
-
-            var task =  Collection.FindOneAndDeleteAsync(filter, options, token);
-
-            Logger.Trace(correlationId, "Deleted from {0} with id = {1}", _collectionName, id);
-
-            return task;
-        }
-
-        public Task<T> GetOneByIdAsync(string correlationId, TI id, CancellationToken token)
-        {
-            var builder = Builders<T>.Filter;
-
-            var filter = builder.Eq(x => x.Id, id);
-
-            var task = Collection.Find(filter).FirstOrDefaultAsync(token);
-
-            Logger.Trace(correlationId, "Retrieved from {0} with id = {1}", _collectionName, id);
-
-            return task;
-        }
-
-        public Task<T> SetAsync(string correlationId, T entity, CancellationToken token)
-        {
-            var identifiable = entity as IIdentifiable<TI>;
+            var identifiable = entity as IIdentifiable<K>;
             if (identifiable == null || entity.Id == null)
-                return Task.FromResult(default(T));
+                return default(T);
 
             var filter = Builders<T>.Filter.Eq(x => x.Id, identifiable.Id);
-
             var options = new FindOneAndReplaceOptions<T>
             {
                 ReturnDocument = ReturnDocument.After,
                 IsUpsert = true
             };
-
-            var task = Collection.FindOneAndReplaceAsync(filter, entity, options, token);
+            var result = await Collection.FindOneAndReplaceAsync(filter, entity, options);
 
             Logger.Trace(correlationId, "Set in {0} with id = {1}", _collectionName, entity.Id);
 
-            return task;
+            return result;
         }
 
-        public Descriptor GetDescriptor()
+        public async Task<T> DeleteByIdAsync(string correlationId, K id)
         {
-            return _descriptor;
+            var filter = Builders<T>.Filter.Eq(x => x.Id, id);
+            var options = new FindOneAndDeleteOptions<T>();
+            var result =  await Collection.FindOneAndDeleteAsync(filter, options);
+
+            Logger.Trace(correlationId, "Deleted from {0} with id = {1}", _collectionName, id);
+
+            return result;
         }
+
+        public async Task ClearAsync(string correlationId)
+        {
+            await Database.DropCollectionAsync(_collectionName);
+        }
+
     }
 }
