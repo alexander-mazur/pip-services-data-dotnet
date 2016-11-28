@@ -8,6 +8,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using PipServices.Commons.Reflect;
 
 namespace PipServices.Data.Memory
 {
@@ -44,7 +45,7 @@ namespace PipServices.Data.Memory
         public void SetReferences(IReferences references)
         {
             // Todo: Use composite logger
-            var logger = (ILogger)references.GetOneOptional(new Descriptor("*", "logger", "*", "*"));
+            var logger = (ILogger)references.GetOneOptional(new Descriptor("*", "logger", "*", "*", "*"));
 
             Logger = logger ?? Logger;
         }
@@ -154,7 +155,7 @@ namespace PipServices.Data.Memory
         {
             var identifiable = entity as IStringIdentifiable;
             if (identifiable != null && entity.Id == null)
-    		    identifiable.Id = IdGenerator.NextLong();
+                ObjectWriter.SetProperty(entity, nameof(entity.Id), IdGenerator.NextLong());
 
             Lock.EnterWriteLock();
 
@@ -178,7 +179,7 @@ namespace PipServices.Data.Memory
         {
             var identifiable = entity as IStringIdentifiable;
             if (identifiable != null && entity.Id == null)
-                identifiable.Id = IdGenerator.NextLong();
+                ObjectWriter.SetProperty(entity, nameof(entity.Id), IdGenerator.NextLong());
 
             Lock.EnterWriteLock();
 

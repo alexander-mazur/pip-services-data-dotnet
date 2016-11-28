@@ -7,6 +7,7 @@ using PipServices.Commons.Refer;
 using PipServices.Commons.Run;
 using System;
 using System.Threading.Tasks;
+using PipServices.Commons.Reflect;
 
 namespace PipServices.Data.MongoDb
 {
@@ -54,7 +55,7 @@ namespace PipServices.Data.MongoDb
         public void SetReferences(IReferences references)
         {
             // Todo: use composite logger
-            var logger = (ILogger)references.GetOneOptional(new Descriptor("*", "logger", "*", "*"));
+            var logger = (ILogger)references.GetOneOptional(new Descriptor("*", "logger", "*", "*", "*"));
 
             Logger = logger ?? Logger;
         }
@@ -146,7 +147,7 @@ namespace PipServices.Data.MongoDb
         {
             var identifiable = entity as IStringIdentifiable;
             if (identifiable != null && entity.Id == null)
-                identifiable.Id = IdGenerator.NextLong();
+                ObjectWriter.SetProperty(entity, nameof(entity.Id), IdGenerator.NextLong());
 
             await Collection.InsertOneAsync(entity, null);
 
