@@ -121,9 +121,9 @@ namespace PipServices.Data.MongoDb
 
                 return Task.Delay(0);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new ConnectionException(correlationId, "ConnectFailed", "Connection to mongodb failed");
+                throw new ConnectionException(correlationId, "ConnectFailed", "Connection to mongodb failed", ex);
             }
         }
 

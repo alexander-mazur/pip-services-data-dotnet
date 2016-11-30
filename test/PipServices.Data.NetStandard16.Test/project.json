@@ -9,13 +9,17 @@
       "type": "platform",
       "version": "1.0.1"
     },
-    "PipServices.Commons": "1.0.26"
+    "PipServices.Commons": "1.0.27"
   },
 
   "frameworks": {
     "netcoreapp1.0": {
       "imports": [ "dnxcore50", "portable-net45+win8" ]
     }
+  },
+
+  "buildOptions": {
+    "define": [ "CORE_NET" ]
   },
 
   "testRunner": "xunit"

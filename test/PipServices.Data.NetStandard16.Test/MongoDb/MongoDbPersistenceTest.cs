@@ -1,12 +1,12 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using PipServices.Data.MongoDb;
 using PipServices.Commons.Config;
-using PipServices.Commons.Refer;
 using Xunit;
 
 namespace PipServices.Data.Test.MongoDb
 {
-    public sealed class MongoDbPersistenceTest
+    public sealed class MongoDbPersistenceTest : IDisposable
     {
         private static MongoDbPersistence<PersistenceFixture.Dummy, string> Db { get; } 
             = new MongoDbPersistence<PersistenceFixture.Dummy, string>("dummies");
@@ -51,6 +51,15 @@ namespace PipServices.Data.Test.MongoDb
             if (Fixture == null) return;
 
             var task = Fixture.TestMultithreading();
+            task.Wait();
+        }
+
+        public void Dispose()
+        {
+            if (Db == null)
+                return;
+
+            var task = Db.CloseAsync(null);
             task.Wait();
         }
     }
