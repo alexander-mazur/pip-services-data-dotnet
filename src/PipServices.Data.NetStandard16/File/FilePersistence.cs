@@ -8,12 +8,12 @@ namespace PipServices.Data.File
         where T : IIdentifiable<K>
         where K : class
     {
-        protected readonly JsonFilePersister<T> Persister;
+        protected readonly JsonFilePersister<T> _persister;
 
         public FilePersistence(JsonFilePersister<T> persister)
             : base(persister, persister)
         {
-            Persister = persister;
+            _persister = persister;
         }
 
         public FilePersistence()
@@ -23,8 +23,7 @@ namespace PipServices.Data.File
         public override void Configure(ConfigParams config)
         {
             base.Configure(config);
-
-            Persister.Configure(config);
+            _persister.Configure(config);
         }
     }
 }

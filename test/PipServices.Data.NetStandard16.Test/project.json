@@ -9,7 +9,7 @@
       "type": "platform",
       "version": "1.0.1"
     },
-    "PipServices.Commons": "1.0.27"
+    "PipServices.Commons": "1.0.30"
   },
 
   "frameworks": {

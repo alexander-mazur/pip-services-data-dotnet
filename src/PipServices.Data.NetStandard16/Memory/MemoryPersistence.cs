@@ -2,13 +2,12 @@
 using PipServices.Commons.Data;
 using PipServices.Commons.Log;
 using PipServices.Commons.Refer;
+using PipServices.Commons.Reflect;
 using PipServices.Commons.Run;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using PipServices.Commons.Reflect;
 
 namespace PipServices.Data.Memory
 {
@@ -17,53 +16,47 @@ namespace PipServices.Data.Memory
         where T : IIdentifiable<K>
         where K : class
     {
-        private const int DefaultMaxPageSize = 100;
+        private const int _defaultMaxPageSize = 100;
 
-        protected readonly string TypeName;
+        protected readonly string _typeName;
+        protected CompositeLogger _logger = new CompositeLogger();
 
-        protected ILogger Logger = new NullLogger();
-
-        protected int MaxPageSize = DefaultMaxPageSize;
-        protected ImmutableList<T> Items = ImmutableList.Create<T>();
-        private readonly ILoader<T> _loader;
-        private readonly ISaver<T> _saver;
-
-        protected readonly ReaderWriterLockSlim Lock = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
+        protected int _maxPageSize = _defaultMaxPageSize;
+        protected List<T> _entities = new List<T>();
+        protected ILoader<T> _loader;
+        protected ISaver<T> _saver;
+        protected readonly ReaderWriterLockSlim _lock = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
 
         public MemoryPersistence()
             : this(null, null)
-        {
-        }
+        { }
 
         protected MemoryPersistence(ILoader<T> loader, ISaver<T> saver)
         {
-            TypeName = typeof(T).Name;
+            _typeName = typeof(T).Name;
             _loader = loader;
             _saver = saver;
         }
 
         public void SetReferences(IReferences references)
         {
-            // Todo: Use composite logger
-            var logger = (ILogger)references.GetOneOptional(new Descriptor("*", "logger", "*", "*", "*"));
-
-            Logger = logger ?? Logger;
+            _logger.SetReferences(references);
         }
 
         public virtual void Configure(ConfigParams config)
         {
             // Todo: Use connection and auth components
-            MaxPageSize = config.GetAsIntegerWithDefault("max_page_size", DefaultMaxPageSize);
+            _maxPageSize = config.GetAsIntegerWithDefault("max_page_size", _maxPageSize);
         }
 
-        public Task OpenAsync(string correlationId)
+        public async Task OpenAsync(string correlationId)
         {
-            return LoadAsync(correlationId);
+            await LoadAsync(correlationId);
         }
 
-        public Task CloseAsync(string correlationId)
+        public async Task CloseAsync(string correlationId)
         {
-            return SaveAsync(correlationId);
+            await SaveAsync(correlationId);
         }
 
         private Task LoadAsync(string correlationId)
@@ -71,61 +64,58 @@ namespace PipServices.Data.Memory
             if (_loader == null)
                 return Task.Delay(0);
             
-            Lock.EnterWriteLock();
+            _lock.EnterWriteLock();
 
             try
             {
-                var task = _loader.LoadAsync(correlationId);
-                task.Wait();
-
-                var loadedItems = task.Result;
-
-                Items = ImmutableList.CreateRange(loadedItems);
-
-                Logger.Trace(correlationId, "Loaded {0} of {1}", Items.Count, TypeName);
-
-                return Task.Delay(0);
+                _entities = _loader.LoadAsync(correlationId).Result;
+                _logger.Trace(correlationId, "Loaded {0} of {1}", _entities.Count, _typeName);
             }
             finally
             {
-                Lock.ExitWriteLock();
+                _lock.ExitWriteLock();
             }
+
+            return Task.Delay(0);
         }
 
         public Task<List<T>> GetListByQueryAsync(string correlationId, string query, SortParams sort)
         {
-            Lock.EnterReadLock();
+            List<T> result;
+
+            _lock.EnterReadLock();
 
             try
             {
-                Logger.Trace(correlationId, "Retrieved {0} of {1}", Items.Count, TypeName);
-
-                return Task.FromResult(new List<T>(Items));
+                _logger.Trace(correlationId, "Retrieved {0} of {1}", _entities.Count, _typeName);
+                result = new List<T>(_entities);
             }
             finally
             {
-                Lock.ExitReadLock();
+                _lock.ExitReadLock();
             }
+
+            return Task.FromResult(result);
         }
 
         public Task<T> GetOneByIdAsync(string correlationId, K id)
         {
-            Lock.EnterReadLock();
+            _lock.EnterReadLock();
 
             try
             {
-                var item = Items.FirstOrDefault(x => x.Id == id);
+                var item = _entities.FirstOrDefault(x => x.Id == id);
 
                 if (item != null)
-                    Logger.Trace(correlationId, "Retrieved {0} by {1}", item, id);
+                    _logger.Trace(correlationId, "Retrieved {0} by {1}", item, id);
                 else
-                    Logger.Trace(correlationId, "Cannot find {0} by {1}", TypeName, id);
+                    _logger.Trace(correlationId, "Cannot find {0} by {1}", _typeName, id);
 
                 return Task.FromResult(item);
             }
             finally
             {
-                Lock.ExitReadLock();
+                _lock.ExitReadLock();
             }
         }
 
@@ -134,20 +124,20 @@ namespace PipServices.Data.Memory
     	    if (_saver == null)
                 return Task.Delay(0);
 
-            Lock.EnterWriteLock();
+            _lock.EnterWriteLock();
 
             try
             {
-                var task = _saver.SaveAsync(correlationId, Items);
+                var task = _saver.SaveAsync(correlationId, _entities);
                 task.Wait();
 
-                Logger.Trace(correlationId, "Saved {0} of {1}", Items.Count, TypeName);
+                _logger.Trace(correlationId, "Saved {0} of {1}", _entities.Count, _typeName);
 
                 return Task.Delay(0);
             }
             finally
             {
-                Lock.ExitWriteLock();
+                _lock.ExitWriteLock();
             }
         }
 
@@ -157,17 +147,17 @@ namespace PipServices.Data.Memory
             if (identifiable != null && entity.Id == null)
                 ObjectWriter.SetProperty(entity, nameof(entity.Id), IdGenerator.NextLong());
 
-            Lock.EnterWriteLock();
+            _lock.EnterWriteLock();
 
             try
             {
-                Items = Items.Add(entity);
+                _entities.Add(entity);
 
-                Logger.Trace(correlationId, "Created {0}", entity);
+                _logger.Trace(correlationId, "Created {0}", entity);
             }
             finally
             {
-                Lock.ExitWriteLock();
+                _lock.ExitWriteLock();
             }
 
             await SaveAsync(correlationId);
@@ -181,19 +171,20 @@ namespace PipServices.Data.Memory
             if (identifiable != null && entity.Id == null)
                 ObjectWriter.SetProperty(entity, nameof(entity.Id), IdGenerator.NextLong());
 
-            Lock.EnterWriteLock();
+            _lock.EnterWriteLock();
 
             try
             {
-                var item = Items.Find(x => x.Id == entity.Id);
+                var index = _entities.FindIndex(x => x.Id == entity.Id);
 
-                Items = item == null ? Items.Add(entity) : Items.Replace(item, entity);
+                if (index < 0) _entities.Add(entity);
+                else _entities[index] = entity;
 
-                Logger.Trace(correlationId, "Set {0}", entity);
+                _logger.Trace(correlationId, "Set {0}", entity);
             }
             finally
             {
-                Lock.ExitWriteLock();
+                _lock.ExitWriteLock();
             }
 
             await SaveAsync(correlationId);
@@ -203,22 +194,22 @@ namespace PipServices.Data.Memory
 
         public async Task<T> UpdateAsync(string correlationId, T entity)
         {
-            Lock.EnterWriteLock();
+            _lock.EnterWriteLock();
 
             try
             {
-                var oldEntity = Items.Find(x => x.Id == entity.Id);
+                var index = _entities.FindIndex(x => x.Id == entity.Id);
 
-                if (oldEntity == null)
+                if (index < 0)
                     return default(T);
 
-                Items = Items.Replace(oldEntity, entity);
+                _entities[index] = entity;
 
-                Logger.Trace(correlationId, "Updated {0}", entity);
+                _logger.Trace(correlationId, "Updated {0}", entity);
             }
             finally
             {
-                Lock.ExitWriteLock();
+                _lock.ExitWriteLock();
             }
 
             await SaveAsync(correlationId);
@@ -228,22 +219,22 @@ namespace PipServices.Data.Memory
 
         public async Task<T> DeleteByIdAsync(string correlationId, K id)
         {
-            var entity = Items.Find(x => x.Id == id);
+            var entity = _entities.Find(x => x.Id == id);
 
             if (entity == null)
                 return default(T);
 
-            Lock.EnterWriteLock();
+            _lock.EnterWriteLock();
 
             try
             {
-                Items = Items.Remove(entity);
+                _entities.Remove(entity);
 
-                Logger.Trace(correlationId, "Deleted {0}", entity);
+                _logger.Trace(correlationId, "Deleted {0}", entity);
             }
             finally
             {
-                Lock.ExitWriteLock();
+                _lock.ExitWriteLock();
             }
 
             await SaveAsync(correlationId);
@@ -253,19 +244,19 @@ namespace PipServices.Data.Memory
 
         public Task ClearAsync(string correlationId)
         {
-            Lock.EnterWriteLock();
+            _lock.EnterWriteLock();
 
             try
             {
-                Items = ImmutableList.Create<T>();
+                _entities = new List<T>();
 
-                Logger.Trace(correlationId, "Cleared {0}", TypeName);
+                _logger.Trace(correlationId, "Cleared {0}", _typeName);
 
                 return SaveAsync(correlationId);
             }
             finally
             {
-                Lock.ExitWriteLock();
+                _lock.ExitWriteLock();
             }
         }
 

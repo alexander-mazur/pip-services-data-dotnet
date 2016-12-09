@@ -25,7 +25,8 @@ namespace PipServices.Data.Test.MongoDb
             Db.Configure(ConfigParams.FromTuples(
                 "connection.type", "mongodb",
                 "connection.database", "test",
-                "connection.uri", ""));
+                "connection.uri", ""
+            ));
 
             var task = Db.OpenAsync(null);
             task.Wait();
