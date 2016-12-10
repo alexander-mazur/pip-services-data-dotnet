@@ -12,15 +12,9 @@ namespace PipServices.Data.Test.MongoDb
             = new MongoDbPersistence<PersistenceFixture.Dummy, string>("dummies");
         private static PersistenceFixture Fixture { get; set; }
 
-        private PersistenceFixture GetFixture()
-        {
-            return new PersistenceFixture(Db, Db, Db, Db, Db, Db, Db, Db);
-        }
-
         public MongoDbPersistenceTest()
         {
-            if (Db == null)
-                return;
+            if (Db == null) return;
 
             Db.Configure(ConfigParams.FromTuples(
                 "connection.type", "mongodb",
@@ -28,40 +22,30 @@ namespace PipServices.Data.Test.MongoDb
                 "connection.uri", ""
             ));
 
-            var task = Db.OpenAsync(null);
-            task.Wait();
+            Db.OpenAsync(null).Wait();
+            Db.ClearAsync(null).Wait();
 
-            task = Db.ClearAsync(null);
-            task.Wait();
-
-            Fixture = GetFixture();
+            Fixture = new PersistenceFixture(Db, Db, Db, Db, Db, Db, Db, Db);
         }
 
         [Fact]
         public void TestCrudOperations()
         {
             if (Fixture == null) return;
-
-            var task = Fixture.TestCrudOperationsAsync();
-            task.Wait();
+            Fixture.TestCrudOperationsAsync().Wait();
         }
 
         [Fact]
         public void TestMultithreading()
         {
             if (Fixture == null) return;
-
-            var task = Fixture.TestMultithreading();
-            task.Wait();
+            Fixture.TestMultithreading().Wait();
         }
 
         public void Dispose()
         {
-            if (Db == null)
-                return;
-
-            var task = Db.CloseAsync(null);
-            task.Wait();
+            if (Db == null) return;
+            Db.CloseAsync(null).Wait();
         }
     }
 }

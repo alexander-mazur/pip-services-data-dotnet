@@ -1,13 +1,16 @@
 ﻿using MongoDB.Driver;
+using PipServices.Commons.Auth;
 using PipServices.Commons.Config;
+using PipServices.Commons.Connect;
 using PipServices.Commons.Data;
 using PipServices.Commons.Errors;
 using PipServices.Commons.Log;
 using PipServices.Commons.Refer;
+using PipServices.Commons.Reflect;
 using PipServices.Commons.Run;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using PipServices.Commons.Reflect;
 
 namespace PipServices.Data.MongoDb
 {
@@ -16,33 +19,30 @@ namespace PipServices.Data.MongoDb
         where T : IIdentifiable<K>
         where K : class
     {
-        private readonly string _collectionName;
+        private ConfigParams _defaultConfig = ConfigParams.FromTuples(
+            "connection.type", "mongodb",
+            "connection.database", "test",
+            "connection.host", "localhost",
+            "connection.port", 27017,
 
-        private const string DefaultHost = "localhost";
-        private const int DefaultPort = 27017;
-        private const int DefaultPollSize = 4;
-        private const int DefaultKeepAlive = 1;
-        private const int DefaultConnectTimeoutMs = 5000;
-        private const bool DefaultAutoReconnect = true;
-        private const int DefaultMaxPageSize = 100;
-        private const bool DefaultDebug = true;
+            "options.poll_size", 4,
+            "options.keep_alive", 1,
+            "options.connect_timeout", 5000,
+            "options.auto_reconnect", true,
+            "options.max_page_size", 100,
+            "options.debug", true
+        );
 
-        protected string Host = DefaultHost;
-        protected int Port = DefaultPort;
-        protected string DatabaseName;
+        protected readonly string _collectionName;
+        protected ConnectionResolver _connectionResolver = new ConnectionResolver();
+        protected CredentialResolver _credentialResolver = new CredentialResolver();
+        protected ConfigParams _options = new ConfigParams();
 
-        protected int PollSize = DefaultPollSize;
-        protected int KeepAlive = DefaultKeepAlive;
-        protected int ConnectTimeoutMs = DefaultConnectTimeoutMs;
-        protected bool AutoReconnect = DefaultAutoReconnect;
-        protected int MaxPageSize = DefaultMaxPageSize;
-        protected bool Debug = DefaultDebug;
+        protected MongoClient _connection;
+        protected IMongoDatabase _database;
+        protected IMongoCollection<T> _collection;
 
-        protected MongoClient Connection { get; private set; }
-        public IMongoDatabase Database { get; private set; }
-        public IMongoCollection<T> Collection { get; private set; }
-
-        protected ILogger Logger = new NullLogger();
+        protected CompositeLogger _logger = new CompositeLogger();
 
         public MongoDbPersistence(string collectionName)
         {
@@ -54,77 +54,77 @@ namespace PipServices.Data.MongoDb
 
         public void SetReferences(IReferences references)
         {
-            // Todo: use composite logger
-            var logger = (ILogger)references.GetOneOptional(new Descriptor("*", "logger", "*", "*", "*"));
-
-            Logger = logger ?? Logger;
+            _logger.SetReferences(references);
+            _connectionResolver.SetReferences(references);
+            _credentialResolver.SetReferences(references);
         }
 
         public void Configure(ConfigParams config)
         {
-            // Todo: Use connection and auth components
+            config = config.SetDefaults(_defaultConfig);
 
-            var connectionType = config.GetAsNullableString("connection.type");
-            DatabaseName = config.GetAsNullableString("connection.database");
-            //Uri = config.GetAsNullableString("connection.uri");
+            _connectionResolver.Configure(config, true);
+            _credentialResolver.Configure(config, true);
 
-            Host = config.GetAsStringWithDefault("connection.host", DefaultHost);
-            Port = config.GetAsIntegerWithDefault("connection.port", DefaultPort);
-
-            PollSize = config.GetAsIntegerWithDefault("options.server.pollSize", DefaultPollSize);
-            KeepAlive = config.GetAsIntegerWithDefault("options.server.socketOptions.keepAlive", DefaultKeepAlive);
-            ConnectTimeoutMs = config.GetAsIntegerWithDefault("options.server.socketOptions.connectTimeoutMS", DefaultConnectTimeoutMs);
-            AutoReconnect = config.GetAsBooleanWithDefault("options.server.auto_reconnect", DefaultAutoReconnect);
-            MaxPageSize = config.GetAsIntegerWithDefault("options.max_page_size", DefaultMaxPageSize);
-            Debug = config.GetAsBooleanWithDefault("options.debug", DefaultDebug);
-
-            if (string.IsNullOrWhiteSpace(connectionType) || connectionType != "mongodb")
-                throw new ConfigException(null, "WrongConnectionType", "MongoDb is the only supported connection type");
-
-            if (string.IsNullOrWhiteSpace(DatabaseName))
-                throw new ConfigException(null, "NoConnectionDatabase", "Connection database is not set");
-
-            //if (string.IsNullOrWhiteSpace(Uri))
-            //    throw new ConfigException(null, "NoConnectionUri", "Connection Uri is not set");
-
-            //if (connection == null)
-            //    throw new ConfigError(this, "NoConnection", "Database connection is not set");
-
-            //if (connection.Host == null)
-            //    throw new ConfigError(this, "NoConnectionHost", "Connection host is not set");
-
-            //if (connection.Port == 0)
-            //    throw new ConfigError(this, "NoConnectionPort", "Connection port is not set");
+            _options = _options.Override(config.GetSection("options"));
         }
 
-        public Task OpenAsync(string correlationId)
+        public async virtual Task OpenAsync(string correlationId)
         {
-            Logger.Trace(correlationId, "Connecting to mongodb database {0}, collection {1}", DatabaseName, _collectionName);
+            var connection = await _connectionResolver.ResolveAsync(correlationId);
+            var credential = await _credentialResolver.LookupAsync(correlationId);
+            await OpenAsync(correlationId, connection, credential);
+        }
+
+        public async Task OpenAsync(string correlationId, ConnectionParams connection, CredentialParams credential)
+        {
+            if (connection == null)
+                throw new ConfigException(correlationId, "NO_CONNECTION", "Database connection is not set");
+
+            var host = connection.Host;
+            if (host == null)
+                throw new ConfigException(correlationId, "NO_HOST", "Connection host is not set");
+
+            var port = connection.Port;
+            if (port == 0)
+                throw new ConfigException(correlationId, "NO_PORT", "Connection port is not set");
+
+            var databaseName = connection.GetAsNullableString("database");
+            if (databaseName == null)
+                throw new ConfigException(correlationId, "NO_DATABASE", "Connection database is not set");
+
+            _logger.Trace(correlationId, "Connecting to mongodb database {0}, collection {1}", databaseName, _collectionName);
 
             try
             {
                 var settings = new MongoClientSettings
                 {
-                    Server = new MongoServerAddress(Host, Port),
-                    MaxConnectionPoolSize = PollSize,
-                    ConnectTimeout = TimeSpan.FromMilliseconds(ConnectTimeoutMs),
+                    Server = new MongoServerAddress(host, port),
+                    MaxConnectionPoolSize =  _options.GetAsInteger("poll_size"),
+                    ConnectTimeout = _options.GetAsTimeSpan("connect_timeout"),
                     //SocketTimeout =
                     //    new TimeSpan(options.GetInteger("server.socketOptions.socketTimeoutMS")*
                     //                 TimeSpan.TicksPerMillisecond)
                 };
 
-                Connection = new MongoClient(settings);
-                Database = Connection.GetDatabase(DatabaseName);
-                Collection = Database.GetCollection<T>(_collectionName);
+                if (credential.Username != null)
+                {
+                    var dbCredential = MongoCredential.CreateCredential(databaseName, credential.Username, credential.Password);
+                    settings.Credentials = new[] { dbCredential };
+                }
 
-                Logger.Debug(correlationId, "Connected to mongodb database {0}, collection {1}", DatabaseName, _collectionName);
+                _connection = new MongoClient(settings);
+                _database = _connection.GetDatabase(databaseName);
+                _collection = _database.GetCollection<T>(_collectionName);
 
-                return Task.Delay(0);
+                _logger.Debug(correlationId, "Connected to mongodb database {0}, collection {1}", databaseName, _collectionName);
             }
             catch (Exception ex)
             {
                 throw new ConnectionException(correlationId, "ConnectFailed", "Connection to mongodb failed", ex);
             }
+
+            await Task.Delay(0);
         }
 
         public Task CloseAsync(string correlationId)
@@ -136,9 +136,9 @@ namespace PipServices.Data.MongoDb
         {
             var builder = Builders<T>.Filter;
             var filter = builder.Eq(x => x.Id, id);
-            var result = await Collection.Find(filter).FirstOrDefaultAsync();
+            var result = await _collection.Find(filter).FirstOrDefaultAsync();
 
-            Logger.Trace(correlationId, "Retrieved from {0} with id = {1}", _collectionName, id);
+            _logger.Trace(correlationId, "Retrieved from {0} with id = {1}", _collectionName, id);
 
             return result;
         }
@@ -149,9 +149,9 @@ namespace PipServices.Data.MongoDb
             if (identifiable != null && entity.Id == null)
                 ObjectWriter.SetProperty(entity, nameof(entity.Id), IdGenerator.NextLong());
 
-            await Collection.InsertOneAsync(entity, null);
+            await _collection.InsertOneAsync(entity, null);
 
-            Logger.Trace(correlationId, "Created in {0} with id = {1}", _collectionName, entity.Id);
+            _logger.Trace(correlationId, "Created in {0} with id = {1}", _collectionName, entity.Id);
 
             return entity;
         }
@@ -168,9 +168,9 @@ namespace PipServices.Data.MongoDb
                 ReturnDocument = ReturnDocument.After,
                 IsUpsert = false
             };
-            var result = await Collection.FindOneAndReplaceAsync(filter, entity, options);
+            var result = await _collection.FindOneAndReplaceAsync(filter, entity, options);
 
-            Logger.Trace(correlationId, "Update in {0} with id = {1}", _collectionName, entity.Id);
+            _logger.Trace(correlationId, "Update in {0} with id = {1}", _collectionName, entity.Id);
 
             return result;
         }
@@ -187,9 +187,9 @@ namespace PipServices.Data.MongoDb
                 ReturnDocument = ReturnDocument.After,
                 IsUpsert = true
             };
-            var result = await Collection.FindOneAndReplaceAsync(filter, entity, options);
+            var result = await _collection.FindOneAndReplaceAsync(filter, entity, options);
 
-            Logger.Trace(correlationId, "Set in {0} with id = {1}", _collectionName, entity.Id);
+            _logger.Trace(correlationId, "Set in {0} with id = {1}", _collectionName, entity.Id);
 
             return result;
         }
@@ -198,16 +198,16 @@ namespace PipServices.Data.MongoDb
         {
             var filter = Builders<T>.Filter.Eq(x => x.Id, id);
             var options = new FindOneAndDeleteOptions<T>();
-            var result =  await Collection.FindOneAndDeleteAsync(filter, options);
+            var result =  await _collection.FindOneAndDeleteAsync(filter, options);
 
-            Logger.Trace(correlationId, "Deleted from {0} with id = {1}", _collectionName, id);
+            _logger.Trace(correlationId, "Deleted from {0} with id = {1}", _collectionName, id);
 
             return result;
         }
 
         public Task ClearAsync(string correlationId)
         {
-            return Database.DropCollectionAsync(_collectionName);
+            return _database.DropCollectionAsync(_collectionName);
         }
     }
 }
