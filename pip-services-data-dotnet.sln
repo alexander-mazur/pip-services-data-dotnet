@@ -7,8 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9A4D7BB2-C69
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B728E84F-7408-4E0C-AB94-3DCDC0A6C035}"
 	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
 		global.json = global.json
 		PipServices.Data.nuspec = PipServices.Data.nuspec
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{6E957517-95EF-4CA3-B69D-62B708CA20D8}"
@@ -25,6 +27,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipServices.Data.Net45.Test", "test\PipServices.Data.Net45.Test\PipServices.Data.Net45.Test.csproj", "{46B3349B-03B0-4AE2-9068-F5F8409DED28}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PipServices.Data.NetStandard16.Test", "test\PipServices.Data.NetStandard16.Test\PipServices.Data.NetStandard16.Test.xproj", "{C861B9F8-78CF-4F23-951D-4E14ED125B34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{573A8C1C-3BFD-44FF-8DDB-50F48E984B17}"
+	ProjectSection(SolutionItems) = preProject
+		doc\Development.md = doc\Development.md
+		doc\Downloads.md = doc\Downloads.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

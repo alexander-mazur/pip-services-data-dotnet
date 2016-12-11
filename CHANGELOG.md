@@ -1,12 +1,13 @@
 # Data processing and persistence components for Pip.Services in .NET Changelog
 
-## <a name="1.0.1-1.0.4"></a> 1.0.1-1.0.4 (2016-12-09)
+## <a name="1.0.1-1.0.6"></a> 1.0.1-1.0.6 (2016-12-11)
 
 ### Features
 * **mongodb** Implemented consistent connection and credential parameters
 
 ### Bug Fixes
 * Added description to NuGet package
+* Updated documentation
 
 ## <a name="1.0.0"></a> 1.0.0 (2016-11-21)
 

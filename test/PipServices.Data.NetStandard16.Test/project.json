@@ -1,4 +1,7 @@
 {
+  "title": "Unit Tests for Pip.Services Data Framework",
+  "copyright": "Copyright © Conceptual Vision Consulting LLC. 2016",
+  "description": "Performs unit testing for Pip.Services data framework",
   "version": "1.0.0-*",
 
   "dependencies": {
@@ -9,8 +12,7 @@
       "type": "platform",
       "version": "1.0.1"
     },
-    "PipServices.Commons": "1.0.30"
-  },
+    "PipServices.Commons": "1.0.33"  },
 
   "frameworks": {
     "netcoreapp1.0": {
