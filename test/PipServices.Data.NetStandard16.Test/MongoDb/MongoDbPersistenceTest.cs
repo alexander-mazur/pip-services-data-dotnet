@@ -31,21 +31,18 @@ namespace PipServices.Data.Test.MongoDb
         [Fact]
         public void TestCrudOperations()
         {
-            if (Fixture == null) return;
-            Fixture.TestCrudOperationsAsync().Wait();
+            Fixture?.TestCrudOperationsAsync().Wait();
         }
 
         [Fact]
         public void TestMultithreading()
         {
-            if (Fixture == null) return;
-            Fixture.TestMultithreading().Wait();
+            Fixture?.TestMultithreading().Wait();
         }
 
         public void Dispose()
         {
-            if (Db == null) return;
-            Db.CloseAsync(null).Wait();
+            Db?.CloseAsync(null).Wait();
         }
     }
 }

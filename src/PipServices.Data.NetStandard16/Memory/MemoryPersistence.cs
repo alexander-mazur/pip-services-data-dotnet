@@ -198,7 +198,7 @@ namespace PipServices.Data.Memory
 
             try
             {
-                var index = _entities.FindIndex(x => x.Id == entity.Id);
+                var index = _entities.FindIndex(x => x.Id.Equals(entity.Id));
 
                 if (index < 0)
                     return default(T);
