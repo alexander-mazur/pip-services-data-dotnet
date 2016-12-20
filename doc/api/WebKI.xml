@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="ClearAsync method">
+    <HelpKINode Title="MemoryPersistence(T, K).ClearAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_ClearAsync.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).ClearAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_ClearAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CloseAsync method">
+    <HelpKINode Title="MemoryPersistence(T, K).CloseAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_CloseAsync.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).CloseAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CloseAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Configure method">
+    <HelpKINode Title="FilePersistence(T, K).Configure Method " Url="html/M_PipServices_Data_File_FilePersistence_2_Configure.htm" />
+    <HelpKINode Title="JsonFilePersister(T).Configure Method " Url="html/M_PipServices_Data_File_JsonFilePersister_1_Configure.htm" />
+    <HelpKINode Title="MemoryPersistence(T, K).Configure Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_Configure.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).Configure Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_Configure.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreateAsync method">
+    <HelpKINode Title="IDynamicWriter(T, K).CreateAsync Method " Url="html/M_PipServices_Data_IDynamicWriter_2_CreateAsync.htm" />
+    <HelpKINode Title="IWriter(T, K).CreateAsync Method " Url="html/M_PipServices_Data_IWriter_2_CreateAsync.htm" />
+    <HelpKINode Title="MemoryPersistence(T, K).CreateAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_CreateAsync.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).CreateAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CreateAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DeleteByIdAsync method">
+    <HelpKINode Title="IDynamicWriter(T, K).DeleteByIdAsync Method " Url="html/M_PipServices_Data_IDynamicWriter_2_DeleteByIdAsync.htm" />
+    <HelpKINode Title="IWriter(T, K).DeleteByIdAsync Method " Url="html/M_PipServices_Data_IWriter_2_DeleteByIdAsync.htm" />
+    <HelpKINode Title="MemoryPersistence(T, K).DeleteByIdAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_DeleteByIdAsync.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).DeleteByIdAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_DeleteByIdAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FilePersistence(Of T, K) class">
+    <HelpKINode Title="FilePersistence(T, K) Class" Url="html/T_PipServices_Data_File_FilePersistence_2.htm" />
+    <HelpKINode Title="about FilePersistence(Of T, K) class" Url="html/T_PipServices_Data_File_FilePersistence_2.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PipServices_Data_File_FilePersistence_2__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_PipServices_Data_File_FilePersistence_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_File_FilePersistence_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FilePersistence(Of T, K).Configure method" Url="html/M_PipServices_Data_File_FilePersistence_2_Configure.htm" />
+  <HelpKINode Title="FilePersistence(Of T, K).FilePersistence constructor" Url="html/Overload_PipServices_Data_File_FilePersistence_2__ctor.htm" />
+  <HelpKINode Title="FilePersistence(Of T, K)._persister field" Url="html/F_PipServices_Data_File_FilePersistence_2__persister.htm" />
+  <HelpKINode Title="FilePersistence&lt;T, K&gt; class">
+    <HelpKINode Title="FilePersistence(T, K) Class" Url="html/T_PipServices_Data_File_FilePersistence_2.htm" />
+    <HelpKINode Title="about FilePersistence&lt;T, K&gt; class" Url="html/T_PipServices_Data_File_FilePersistence_2.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PipServices_Data_File_FilePersistence_2__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_PipServices_Data_File_FilePersistence_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_File_FilePersistence_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FilePersistence&lt;T, K&gt;.Configure method" Url="html/M_PipServices_Data_File_FilePersistence_2_Configure.htm" />
+  <HelpKINode Title="FilePersistence&lt;T, K&gt;.FilePersistence constructor" Url="html/Overload_PipServices_Data_File_FilePersistence_2__ctor.htm" />
+  <HelpKINode Title="FilePersistence&lt;T, K&gt;._persister field" Url="html/F_PipServices_Data_File_FilePersistence_2__persister.htm" />
+  <HelpKINode Title="GetListByFilterAsync method" Url="html/M_PipServices_Data_IFilteredReader_1_GetListByFilterAsync.htm" />
+  <HelpKINode Title="GetListByQueryAsync method">
+    <HelpKINode Title="IQuerableReader(T).GetListByQueryAsync Method " Url="html/M_PipServices_Data_IQuerableReader_1_GetListByQueryAsync.htm" />
+    <HelpKINode Title="MemoryPersistence(T, K).GetListByQueryAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetListByQueryAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetOneByIdAsync method">
+    <HelpKINode Title="IGetter(T, K).GetOneByIdAsync Method " Url="html/M_PipServices_Data_IGetter_2_GetOneByIdAsync.htm" />
+    <HelpKINode Title="MemoryPersistence(T, K).GetOneByIdAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetOneByIdAsync.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).GetOneByIdAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_GetOneByIdAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetPageByFilterAsync method" Url="html/M_PipServices_Data_IFilteredPageReader_1_GetPageByFilterAsync.htm" />
+  <HelpKINode Title="GetPageByQueryAsync method" Url="html/M_PipServices_Data_IQuarablePageReader_1_GetPageByQueryAsync.htm" />
+  <HelpKINode Title="IDynamicWriter(Of T, K) interface">
+    <HelpKINode Title="IDynamicWriter(T, K) Interface" Url="html/T_PipServices_Data_IDynamicWriter_2.htm" />
+    <HelpKINode Title="about IDynamicWriter(Of T, K) interface" Url="html/T_PipServices_Data_IDynamicWriter_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IDynamicWriter_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IDynamicWriter(Of T, K).CreateAsync method" Url="html/M_PipServices_Data_IDynamicWriter_2_CreateAsync.htm" />
+  <HelpKINode Title="IDynamicWriter(Of T, K).DeleteByIdAsync method" Url="html/M_PipServices_Data_IDynamicWriter_2_DeleteByIdAsync.htm" />
+  <HelpKINode Title="IDynamicWriter(Of T, K).UpdateAsync method" Url="html/M_PipServices_Data_IDynamicWriter_2_UpdateAsync.htm" />
+  <HelpKINode Title="IDynamicWriter&lt;T, K&gt; interface">
+    <HelpKINode Title="IDynamicWriter(T, K) Interface" Url="html/T_PipServices_Data_IDynamicWriter_2.htm" />
+    <HelpKINode Title="about IDynamicWriter&lt;T, K&gt; interface" Url="html/T_PipServices_Data_IDynamicWriter_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IDynamicWriter_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IDynamicWriter&lt;T, K&gt;.CreateAsync method" Url="html/M_PipServices_Data_IDynamicWriter_2_CreateAsync.htm" />
+  <HelpKINode Title="IDynamicWriter&lt;T, K&gt;.DeleteByIdAsync method" Url="html/M_PipServices_Data_IDynamicWriter_2_DeleteByIdAsync.htm" />
+  <HelpKINode Title="IDynamicWriter&lt;T, K&gt;.UpdateAsync method" Url="html/M_PipServices_Data_IDynamicWriter_2_UpdateAsync.htm" />
+  <HelpKINode Title="IFilteredPageReader(Of T) interface">
+    <HelpKINode Title="IFilteredPageReader(T) Interface" Url="html/T_PipServices_Data_IFilteredPageReader_1.htm" />
+    <HelpKINode Title="about IFilteredPageReader(Of T) interface" Url="html/T_PipServices_Data_IFilteredPageReader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IFilteredPageReader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IFilteredPageReader(Of T).GetPageByFilterAsync method" Url="html/M_PipServices_Data_IFilteredPageReader_1_GetPageByFilterAsync.htm" />
+  <HelpKINode Title="IFilteredPageReader&lt;T&gt; interface">
+    <HelpKINode Title="IFilteredPageReader(T) Interface" Url="html/T_PipServices_Data_IFilteredPageReader_1.htm" />
+    <HelpKINode Title="about IFilteredPageReader&lt;T&gt; interface" Url="html/T_PipServices_Data_IFilteredPageReader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IFilteredPageReader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IFilteredPageReader&lt;T&gt;.GetPageByFilterAsync method" Url="html/M_PipServices_Data_IFilteredPageReader_1_GetPageByFilterAsync.htm" />
+  <HelpKINode Title="IFilteredReader(Of T) interface">
+    <HelpKINode Title="IFilteredReader(T) Interface" Url="html/T_PipServices_Data_IFilteredReader_1.htm" />
+    <HelpKINode Title="about IFilteredReader(Of T) interface" Url="html/T_PipServices_Data_IFilteredReader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IFilteredReader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IFilteredReader(Of T).GetListByFilterAsync method" Url="html/M_PipServices_Data_IFilteredReader_1_GetListByFilterAsync.htm" />
+  <HelpKINode Title="IFilteredReader&lt;T&gt; interface">
+    <HelpKINode Title="IFilteredReader(T) Interface" Url="html/T_PipServices_Data_IFilteredReader_1.htm" />
+    <HelpKINode Title="about IFilteredReader&lt;T&gt; interface" Url="html/T_PipServices_Data_IFilteredReader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IFilteredReader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IFilteredReader&lt;T&gt;.GetListByFilterAsync method" Url="html/M_PipServices_Data_IFilteredReader_1_GetListByFilterAsync.htm" />
+  <HelpKINode Title="IGetter(Of T, K) interface">
+    <HelpKINode Title="IGetter(T, K) Interface" Url="html/T_PipServices_Data_IGetter_2.htm" />
+    <HelpKINode Title="about IGetter(Of T, K) interface" Url="html/T_PipServices_Data_IGetter_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IGetter_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IGetter(Of T, K).GetOneByIdAsync method" Url="html/M_PipServices_Data_IGetter_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="IGetter&lt;T, K&gt; interface">
+    <HelpKINode Title="IGetter(T, K) Interface" Url="html/T_PipServices_Data_IGetter_2.htm" />
+    <HelpKINode Title="about IGetter&lt;T, K&gt; interface" Url="html/T_PipServices_Data_IGetter_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IGetter_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IGetter&lt;T, K&gt;.GetOneByIdAsync method" Url="html/M_PipServices_Data_IGetter_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="ILoader(Of T) interface">
+    <HelpKINode Title="ILoader(T) Interface" Url="html/T_PipServices_Data_ILoader_1.htm" />
+    <HelpKINode Title="about ILoader(Of T) interface" Url="html/T_PipServices_Data_ILoader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_ILoader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ILoader(Of T).LoadAsync method" Url="html/M_PipServices_Data_ILoader_1_LoadAsync.htm" />
+  <HelpKINode Title="ILoader&lt;T&gt; interface">
+    <HelpKINode Title="ILoader(T) Interface" Url="html/T_PipServices_Data_ILoader_1.htm" />
+    <HelpKINode Title="about ILoader&lt;T&gt; interface" Url="html/T_PipServices_Data_ILoader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_ILoader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ILoader&lt;T&gt;.LoadAsync method" Url="html/M_PipServices_Data_ILoader_1_LoadAsync.htm" />
+  <HelpKINode Title="IQuarablePageReader(Of T) interface">
+    <HelpKINode Title="IQuarablePageReader(T) Interface" Url="html/T_PipServices_Data_IQuarablePageReader_1.htm" />
+    <HelpKINode Title="about IQuarablePageReader(Of T) interface" Url="html/T_PipServices_Data_IQuarablePageReader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IQuarablePageReader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IQuarablePageReader(Of T).GetPageByQueryAsync method" Url="html/M_PipServices_Data_IQuarablePageReader_1_GetPageByQueryAsync.htm" />
+  <HelpKINode Title="IQuarablePageReader&lt;T&gt; interface">
+    <HelpKINode Title="IQuarablePageReader(T) Interface" Url="html/T_PipServices_Data_IQuarablePageReader_1.htm" />
+    <HelpKINode Title="about IQuarablePageReader&lt;T&gt; interface" Url="html/T_PipServices_Data_IQuarablePageReader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IQuarablePageReader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IQuarablePageReader&lt;T&gt;.GetPageByQueryAsync method" Url="html/M_PipServices_Data_IQuarablePageReader_1_GetPageByQueryAsync.htm" />
+  <HelpKINode Title="IQuerableReader(Of T) interface">
+    <HelpKINode Title="IQuerableReader(T) Interface" Url="html/T_PipServices_Data_IQuerableReader_1.htm" />
+    <HelpKINode Title="about IQuerableReader(Of T) interface" Url="html/T_PipServices_Data_IQuerableReader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IQuerableReader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IQuerableReader(Of T).GetListByQueryAsync method" Url="html/M_PipServices_Data_IQuerableReader_1_GetListByQueryAsync.htm" />
+  <HelpKINode Title="IQuerableReader&lt;T&gt; interface">
+    <HelpKINode Title="IQuerableReader(T) Interface" Url="html/T_PipServices_Data_IQuerableReader_1.htm" />
+    <HelpKINode Title="about IQuerableReader&lt;T&gt; interface" Url="html/T_PipServices_Data_IQuerableReader_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IQuerableReader_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IQuerableReader&lt;T&gt;.GetListByQueryAsync method" Url="html/M_PipServices_Data_IQuerableReader_1_GetListByQueryAsync.htm" />
+  <HelpKINode Title="ISaver(Of T) interface">
+    <HelpKINode Title="ISaver(T) Interface" Url="html/T_PipServices_Data_ISaver_1.htm" />
+    <HelpKINode Title="about ISaver(Of T) interface" Url="html/T_PipServices_Data_ISaver_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_ISaver_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISaver(Of T).SaveAsync method" Url="html/M_PipServices_Data_ISaver_1_SaveAsync.htm" />
+  <HelpKINode Title="ISaver&lt;T&gt; interface">
+    <HelpKINode Title="ISaver(T) Interface" Url="html/T_PipServices_Data_ISaver_1.htm" />
+    <HelpKINode Title="about ISaver&lt;T&gt; interface" Url="html/T_PipServices_Data_ISaver_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_ISaver_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISaver&lt;T&gt;.SaveAsync method" Url="html/M_PipServices_Data_ISaver_1_SaveAsync.htm" />
+  <HelpKINode Title="ISetter(Of T) interface">
+    <HelpKINode Title="ISetter(T) Interface" Url="html/T_PipServices_Data_ISetter_1.htm" />
+    <HelpKINode Title="about ISetter(Of T) interface" Url="html/T_PipServices_Data_ISetter_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_ISetter_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISetter(Of T).SetAsync method" Url="html/M_PipServices_Data_ISetter_1_SetAsync.htm" />
+  <HelpKINode Title="ISetter&lt;T&gt; interface">
+    <HelpKINode Title="ISetter(T) Interface" Url="html/T_PipServices_Data_ISetter_1.htm" />
+    <HelpKINode Title="about ISetter&lt;T&gt; interface" Url="html/T_PipServices_Data_ISetter_1.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_ISetter_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISetter&lt;T&gt;.SetAsync method" Url="html/M_PipServices_Data_ISetter_1_SetAsync.htm" />
+  <HelpKINode Title="IWriter(Of T, K) interface">
+    <HelpKINode Title="IWriter(T, K) Interface" Url="html/T_PipServices_Data_IWriter_2.htm" />
+    <HelpKINode Title="about IWriter(Of T, K) interface" Url="html/T_PipServices_Data_IWriter_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IWriter_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IWriter(Of T, K).CreateAsync method" Url="html/M_PipServices_Data_IWriter_2_CreateAsync.htm" />
+  <HelpKINode Title="IWriter(Of T, K).DeleteByIdAsync method" Url="html/M_PipServices_Data_IWriter_2_DeleteByIdAsync.htm" />
+  <HelpKINode Title="IWriter(Of T, K).UpdateAsync method" Url="html/M_PipServices_Data_IWriter_2_UpdateAsync.htm" />
+  <HelpKINode Title="IWriter&lt;T, K&gt; interface">
+    <HelpKINode Title="IWriter(T, K) Interface" Url="html/T_PipServices_Data_IWriter_2.htm" />
+    <HelpKINode Title="about IWriter&lt;T, K&gt; interface" Url="html/T_PipServices_Data_IWriter_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_IWriter_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IWriter&lt;T, K&gt;.CreateAsync method" Url="html/M_PipServices_Data_IWriter_2_CreateAsync.htm" />
+  <HelpKINode Title="IWriter&lt;T, K&gt;.DeleteByIdAsync method" Url="html/M_PipServices_Data_IWriter_2_DeleteByIdAsync.htm" />
+  <HelpKINode Title="IWriter&lt;T, K&gt;.UpdateAsync method" Url="html/M_PipServices_Data_IWriter_2_UpdateAsync.htm" />
+  <HelpKINode Title="JsonFilePersister(Of T) class">
+    <HelpKINode Title="JsonFilePersister(T) Class" Url="html/T_PipServices_Data_File_JsonFilePersister_1.htm" />
+    <HelpKINode Title="about JsonFilePersister(Of T) class" Url="html/T_PipServices_Data_File_JsonFilePersister_1.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PipServices_Data_File_JsonFilePersister_1__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_File_JsonFilePersister_1.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PipServices_Data_File_JsonFilePersister_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="JsonFilePersister(Of T).Configure method" Url="html/M_PipServices_Data_File_JsonFilePersister_1_Configure.htm" />
+  <HelpKINode Title="JsonFilePersister(Of T).JsonFilePersister constructor" Url="html/Overload_PipServices_Data_File_JsonFilePersister_1__ctor.htm" />
+  <HelpKINode Title="JsonFilePersister(Of T).LoadAsync method" Url="html/M_PipServices_Data_File_JsonFilePersister_1_LoadAsync.htm" />
+  <HelpKINode Title="JsonFilePersister(Of T).Path property" Url="html/P_PipServices_Data_File_JsonFilePersister_1_Path.htm" />
+  <HelpKINode Title="JsonFilePersister(Of T).SaveAsync method" Url="html/M_PipServices_Data_File_JsonFilePersister_1_SaveAsync.htm" />
+  <HelpKINode Title="JsonFilePersister&lt;T&gt; class">
+    <HelpKINode Title="JsonFilePersister(T) Class" Url="html/T_PipServices_Data_File_JsonFilePersister_1.htm" />
+    <HelpKINode Title="about JsonFilePersister&lt;T&gt; class" Url="html/T_PipServices_Data_File_JsonFilePersister_1.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PipServices_Data_File_JsonFilePersister_1__ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_File_JsonFilePersister_1.htm" />
+    <HelpKINode Title="properties" Url="html/Properties_T_PipServices_Data_File_JsonFilePersister_1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="JsonFilePersister&lt;T&gt;.Configure method" Url="html/M_PipServices_Data_File_JsonFilePersister_1_Configure.htm" />
+  <HelpKINode Title="JsonFilePersister&lt;T&gt;.JsonFilePersister constructor" Url="html/Overload_PipServices_Data_File_JsonFilePersister_1__ctor.htm" />
+  <HelpKINode Title="JsonFilePersister&lt;T&gt;.LoadAsync method" Url="html/M_PipServices_Data_File_JsonFilePersister_1_LoadAsync.htm" />
+  <HelpKINode Title="JsonFilePersister&lt;T&gt;.Path property" Url="html/P_PipServices_Data_File_JsonFilePersister_1_Path.htm" />
+  <HelpKINode Title="JsonFilePersister&lt;T&gt;.SaveAsync method" Url="html/M_PipServices_Data_File_JsonFilePersister_1_SaveAsync.htm" />
+  <HelpKINode Title="LoadAsync method">
+    <HelpKINode Title="ILoader(T).LoadAsync Method " Url="html/M_PipServices_Data_ILoader_1_LoadAsync.htm" />
+    <HelpKINode Title="JsonFilePersister(T).LoadAsync Method " Url="html/M_PipServices_Data_File_JsonFilePersister_1_LoadAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MemoryPersistence(Of T, K) class">
+    <HelpKINode Title="MemoryPersistence(T, K) Class" Url="html/T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+    <HelpKINode Title="about MemoryPersistence(Of T, K) class" Url="html/T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PipServices_Data_Memory_MemoryPersistence_2__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MemoryPersistence(Of T, K).ClearAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_ClearAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).CloseAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_CloseAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).Configure method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_Configure.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).CreateAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_CreateAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).DeleteByIdAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_DeleteByIdAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).GetListByQueryAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetListByQueryAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).GetOneByIdAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).MemoryPersistence constructor" Url="html/Overload_PipServices_Data_Memory_MemoryPersistence_2__ctor.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).OpenAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_OpenAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).SaveAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SaveAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).SetAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SetAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).SetReferences method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SetReferences.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).UpdateAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_UpdateAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K)._entities field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__entities.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K)._loader field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__loader.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K)._lock field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__lock.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K)._logger field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__logger.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K)._maxPageSize field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__maxPageSize.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K)._saver field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__saver.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K)._typeName field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__typeName.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt; class">
+    <HelpKINode Title="MemoryPersistence(T, K) Class" Url="html/T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+    <HelpKINode Title="about MemoryPersistence&lt;T, K&gt; class" Url="html/T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload_PipServices_Data_Memory_MemoryPersistence_2__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.ClearAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_ClearAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.CloseAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_CloseAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.Configure method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_Configure.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.CreateAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_CreateAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.DeleteByIdAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_DeleteByIdAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.GetListByQueryAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetListByQueryAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.GetOneByIdAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.MemoryPersistence constructor" Url="html/Overload_PipServices_Data_Memory_MemoryPersistence_2__ctor.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.OpenAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_OpenAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.SaveAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SaveAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.SetAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SetAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.SetReferences method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SetReferences.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.UpdateAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_UpdateAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._entities field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__entities.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._loader field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__loader.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._lock field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__lock.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._logger field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__logger.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._maxPageSize field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__maxPageSize.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._saver field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__saver.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._typeName field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__typeName.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K) class">
+    <HelpKINode Title="MongoDbPersistence(T, K) Class" Url="html/T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+    <HelpKINode Title="about MongoDbPersistence(Of T, K) class" Url="html/T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+    <HelpKINode Title="constructor" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MongoDbPersistence(Of T, K).ClearAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_ClearAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).CloseAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CloseAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).Configure method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_Configure.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).CreateAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CreateAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).DeleteByIdAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_DeleteByIdAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).GetOneByIdAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).MongoDbPersistence constructor" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2__ctor.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).OpenAsync method" Url="html/Overload_PipServices_Data_MongoDb_MongoDbPersistence_2_OpenAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).SetAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).SetReferences method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetReferences.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).UpdateAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_UpdateAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K)._collection field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__collection.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K)._collectionName field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__collectionName.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K)._connection field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__connection.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K)._connectionResolver field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__connectionResolver.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K)._credentialResolver field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__credentialResolver.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K)._database field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__database.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K)._logger field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__logger.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K)._options field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__options.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt; class">
+    <HelpKINode Title="MongoDbPersistence(T, K) Class" Url="html/T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+    <HelpKINode Title="about MongoDbPersistence&lt;T, K&gt; class" Url="html/T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+    <HelpKINode Title="constructor" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2__ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields_T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+    <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.ClearAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_ClearAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.CloseAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CloseAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.Configure method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_Configure.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.CreateAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CreateAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.DeleteByIdAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_DeleteByIdAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.GetOneByIdAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.MongoDbPersistence constructor" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2__ctor.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.OpenAsync method" Url="html/Overload_PipServices_Data_MongoDb_MongoDbPersistence_2_OpenAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.SetAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.SetReferences method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetReferences.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.UpdateAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_UpdateAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;._collection field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__collection.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;._collectionName field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__collectionName.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;._connection field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__connection.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;._connectionResolver field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__connectionResolver.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;._credentialResolver field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__credentialResolver.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;._database field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__database.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;._logger field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__logger.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;._options field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__options.htm" />
+  <HelpKINode Title="OpenAsync method">
+    <HelpKINode Title="MemoryPersistence(T, K).OpenAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_OpenAsync.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).OpenAsync Method " Url="html/Overload_PipServices_Data_MongoDb_MongoDbPersistence_2_OpenAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Path property" Url="html/P_PipServices_Data_File_JsonFilePersister_1_Path.htm" />
+  <HelpKINode Title="PipServices.Data namespace" Url="html/N_PipServices_Data.htm" />
+  <HelpKINode Title="PipServices.Data.File namespace" Url="html/N_PipServices_Data_File.htm" />
+  <HelpKINode Title="PipServices.Data.File.FilePersistence(Of T, K) class" Url="html/T_PipServices_Data_File_FilePersistence_2.htm" />
+  <HelpKINode Title="PipServices.Data.File.FilePersistence&lt;T, K&gt; class" Url="html/T_PipServices_Data_File_FilePersistence_2.htm" />
+  <HelpKINode Title="PipServices.Data.File.JsonFilePersister(Of T) class" Url="html/T_PipServices_Data_File_JsonFilePersister_1.htm" />
+  <HelpKINode Title="PipServices.Data.File.JsonFilePersister&lt;T&gt; class" Url="html/T_PipServices_Data_File_JsonFilePersister_1.htm" />
+  <HelpKINode Title="PipServices.Data.IDynamicWriter(Of T, K) interface" Url="html/T_PipServices_Data_IDynamicWriter_2.htm" />
+  <HelpKINode Title="PipServices.Data.IDynamicWriter&lt;T, K&gt; interface" Url="html/T_PipServices_Data_IDynamicWriter_2.htm" />
+  <HelpKINode Title="PipServices.Data.IFilteredPageReader(Of T) interface" Url="html/T_PipServices_Data_IFilteredPageReader_1.htm" />
+  <HelpKINode Title="PipServices.Data.IFilteredPageReader&lt;T&gt; interface" Url="html/T_PipServices_Data_IFilteredPageReader_1.htm" />
+  <HelpKINode Title="PipServices.Data.IFilteredReader(Of T) interface" Url="html/T_PipServices_Data_IFilteredReader_1.htm" />
+  <HelpKINode Title="PipServices.Data.IFilteredReader&lt;T&gt; interface" Url="html/T_PipServices_Data_IFilteredReader_1.htm" />
+  <HelpKINode Title="PipServices.Data.IGetter(Of T, K) interface" Url="html/T_PipServices_Data_IGetter_2.htm" />
+  <HelpKINode Title="PipServices.Data.IGetter&lt;T, K&gt; interface" Url="html/T_PipServices_Data_IGetter_2.htm" />
+  <HelpKINode Title="PipServices.Data.ILoader(Of T) interface" Url="html/T_PipServices_Data_ILoader_1.htm" />
+  <HelpKINode Title="PipServices.Data.ILoader&lt;T&gt; interface" Url="html/T_PipServices_Data_ILoader_1.htm" />
+  <HelpKINode Title="PipServices.Data.IQuarablePageReader(Of T) interface" Url="html/T_PipServices_Data_IQuarablePageReader_1.htm" />
+  <HelpKINode Title="PipServices.Data.IQuarablePageReader&lt;T&gt; interface" Url="html/T_PipServices_Data_IQuarablePageReader_1.htm" />
+  <HelpKINode Title="PipServices.Data.IQuerableReader(Of T) interface" Url="html/T_PipServices_Data_IQuerableReader_1.htm" />
+  <HelpKINode Title="PipServices.Data.IQuerableReader&lt;T&gt; interface" Url="html/T_PipServices_Data_IQuerableReader_1.htm" />
+  <HelpKINode Title="PipServices.Data.ISaver(Of T) interface" Url="html/T_PipServices_Data_ISaver_1.htm" />
+  <HelpKINode Title="PipServices.Data.ISaver&lt;T&gt; interface" Url="html/T_PipServices_Data_ISaver_1.htm" />
+  <HelpKINode Title="PipServices.Data.ISetter(Of T) interface" Url="html/T_PipServices_Data_ISetter_1.htm" />
+  <HelpKINode Title="PipServices.Data.ISetter&lt;T&gt; interface" Url="html/T_PipServices_Data_ISetter_1.htm" />
+  <HelpKINode Title="PipServices.Data.IWriter(Of T, K) interface" Url="html/T_PipServices_Data_IWriter_2.htm" />
+  <HelpKINode Title="PipServices.Data.IWriter&lt;T, K&gt; interface" Url="html/T_PipServices_Data_IWriter_2.htm" />
+  <HelpKINode Title="PipServices.Data.Memory namespace" Url="html/N_PipServices_Data_Memory.htm" />
+  <HelpKINode Title="PipServices.Data.Memory.MemoryPersistence(Of T, K) class" Url="html/T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+  <HelpKINode Title="PipServices.Data.Memory.MemoryPersistence&lt;T, K&gt; class" Url="html/T_PipServices_Data_Memory_MemoryPersistence_2.htm" />
+  <HelpKINode Title="PipServices.Data.MongoDb namespace" Url="html/N_PipServices_Data_MongoDb.htm" />
+  <HelpKINode Title="PipServices.Data.MongoDb.MongoDbPersistence(Of T, K) class" Url="html/T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+  <HelpKINode Title="PipServices.Data.MongoDb.MongoDbPersistence&lt;T, K&gt; class" Url="html/T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm" />
+  <HelpKINode Title="SaveAsync method">
+    <HelpKINode Title="ISaver(T).SaveAsync Method " Url="html/M_PipServices_Data_ISaver_1_SaveAsync.htm" />
+    <HelpKINode Title="JsonFilePersister(T).SaveAsync Method " Url="html/M_PipServices_Data_File_JsonFilePersister_1_SaveAsync.htm" />
+    <HelpKINode Title="MemoryPersistence(T, K).SaveAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SaveAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetAsync method">
+    <HelpKINode Title="ISetter(T).SetAsync Method " Url="html/M_PipServices_Data_ISetter_1_SetAsync.htm" />
+    <HelpKINode Title="MemoryPersistence(T, K).SetAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SetAsync.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).SetAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SetReferences method">
+    <HelpKINode Title="MemoryPersistence(T, K).SetReferences Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SetReferences.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).SetReferences Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetReferences.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UpdateAsync method">
+    <HelpKINode Title="IDynamicWriter(T, K).UpdateAsync Method " Url="html/M_PipServices_Data_IDynamicWriter_2_UpdateAsync.htm" />
+    <HelpKINode Title="IWriter(T, K).UpdateAsync Method " Url="html/M_PipServices_Data_IWriter_2_UpdateAsync.htm" />
+    <HelpKINode Title="MemoryPersistence(T, K).UpdateAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_UpdateAsync.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).UpdateAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_UpdateAsync.htm" />
+  </HelpKINode>
+  <HelpKINode Title="version">
+    <HelpKINode Title="1.0.0.0" Url="html/ef65cc23-b1ff-4dec-a4ff-faacbece362c.htm" />
+    <HelpKINode Title="history" Url="html/e8d4910f-7198-4cee-93cc-62f4e36a45c3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Welcome" Url="html/f417d4e0-8296-47cb-989e-bbc32fca222a.htm" />
+  <HelpKINode Title="_collection field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__collection.htm" />
+  <HelpKINode Title="_collectionName field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__collectionName.htm" />
+  <HelpKINode Title="_connection field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__connection.htm" />
+  <HelpKINode Title="_connectionResolver field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__connectionResolver.htm" />
+  <HelpKINode Title="_credentialResolver field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__credentialResolver.htm" />
+  <HelpKINode Title="_database field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__database.htm" />
+  <HelpKINode Title="_entities field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__entities.htm" />
+  <HelpKINode Title="_loader field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__loader.htm" />
+  <HelpKINode Title="_lock field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__lock.htm" />
+  <HelpKINode Title="_logger field">
+    <HelpKINode Title="MemoryPersistence(T, K)._logger Field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__logger.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K)._logger Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__logger.htm" />
+  </HelpKINode>
+  <HelpKINode Title="_maxPageSize field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__maxPageSize.htm" />
+  <HelpKINode Title="_options field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__options.htm" />
+  <HelpKINode Title="_persister field" Url="html/F_PipServices_Data_File_FilePersistence_2__persister.htm" />
+  <HelpKINode Title="_saver field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__saver.htm" />
+  <HelpKINode Title="_typeName field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__typeName.htm" />
+</HelpKI>

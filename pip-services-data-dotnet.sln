@@ -28,11 +28,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipServices.Data.Net45.Test
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PipServices.Data.NetStandard16.Test", "test\PipServices.Data.NetStandard16.Test\PipServices.Data.NetStandard16.Test.xproj", "{C861B9F8-78CF-4F23-951D-4E14ED125B34}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{573A8C1C-3BFD-44FF-8DDB-50F48E984B17}"
-	ProjectSection(SolutionItems) = preProject
-		doc\Development.md = doc\Development.md
-		doc\Downloads.md = doc\Downloads.md
-	EndProjectSection
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "PipServices.Data.Documents", "src\PipServices.Data.Documents\PipServices.Data.Documents.shfbproj", "{C2A72986-B887-4562-8C6E-AF8381730277}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "doc", "doc\doc.xproj", "{FBA1F138-9C9F-49F3-A391-A3D35B4E4115}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +54,14 @@ Global
 		{C861B9F8-78CF-4F23-951D-4E14ED125B34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C861B9F8-78CF-4F23-951D-4E14ED125B34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C861B9F8-78CF-4F23-951D-4E14ED125B34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2A72986-B887-4562-8C6E-AF8381730277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2A72986-B887-4562-8C6E-AF8381730277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2A72986-B887-4562-8C6E-AF8381730277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2A72986-B887-4562-8C6E-AF8381730277}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBA1F138-9C9F-49F3-A391-A3D35B4E4115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA1F138-9C9F-49F3-A391-A3D35B4E4115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA1F138-9C9F-49F3-A391-A3D35B4E4115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA1F138-9C9F-49F3-A391-A3D35B4E4115}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,5 +71,6 @@ Global
 		{98C2211F-5E2C-437A-B0F9-6F467ED0BDCB} = {9A4D7BB2-C696-42E3-BF44-3C1B2607B5D1}
 		{46B3349B-03B0-4AE2-9068-F5F8409DED28} = {D78D7887-476C-40C7-9428-27C21B011565}
 		{C861B9F8-78CF-4F23-951D-4E14ED125B34} = {D78D7887-476C-40C7-9428-27C21B011565}
+		{C2A72986-B887-4562-8C6E-AF8381730277} = {9A4D7BB2-C696-42E3-BF44-3C1B2607B5D1}
 	EndGlobalSection
 EndGlobal

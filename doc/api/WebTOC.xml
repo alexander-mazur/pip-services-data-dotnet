@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Title="Welcome to the PipServices.Data" Url="html/f417d4e0-8296-47cb-989e-bbc32fca222a.htm" />
+  <HelpTOCNode Id="0e746d29-4870-4e81-8246-bef58f148d88" Title="Version History" Url="html/e8d4910f-7198-4cee-93cc-62f4e36a45c3.htm">
+    <HelpTOCNode Title="Version 1.0.9" Url="html/ef65cc23-b1ff-4dec-a4ff-faacbece362c.htm" />
+  </HelpTOCNode>
+  <HelpTOCNode Id="7c047dc8-2784-468c-8bf0-9221a2177397" Title="PipServices.Data" Url="html/N_PipServices_Data.htm">
+    <HelpTOCNode Id="91dccf51-fa8a-4ef4-990b-80eac9af74c3" Title="IDynamicWriter(T, K) Interface" Url="html/T_PipServices_Data_IDynamicWriter_2.htm">
+      <HelpTOCNode Id="090166c2-90ba-4f74-9e7f-a4a0777bc805" Title="IDynamicWriter(T, K) Methods" Url="html/Methods_T_PipServices_Data_IDynamicWriter_2.htm">
+        <HelpTOCNode Title="CreateAsync Method " Url="html/M_PipServices_Data_IDynamicWriter_2_CreateAsync.htm" />
+        <HelpTOCNode Title="DeleteByIdAsync Method " Url="html/M_PipServices_Data_IDynamicWriter_2_DeleteByIdAsync.htm" />
+        <HelpTOCNode Title="UpdateAsync Method " Url="html/M_PipServices_Data_IDynamicWriter_2_UpdateAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="47d0de40-b1eb-47ba-ada1-c0992defcd13" Title="IFilteredPageReader(T) Interface" Url="html/T_PipServices_Data_IFilteredPageReader_1.htm">
+      <HelpTOCNode Id="ae9037cb-013b-4134-8efd-b1637475a0bb" Title="IFilteredPageReader(T) Methods" Url="html/Methods_T_PipServices_Data_IFilteredPageReader_1.htm">
+        <HelpTOCNode Title="GetPageByFilterAsync Method " Url="html/M_PipServices_Data_IFilteredPageReader_1_GetPageByFilterAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="d568ef8c-93ba-48f7-b02e-59ab6713a8fc" Title="IFilteredReader(T) Interface" Url="html/T_PipServices_Data_IFilteredReader_1.htm">
+      <HelpTOCNode Id="f00d8821-e4ef-4559-b262-4852bca92bf7" Title="IFilteredReader(T) Methods" Url="html/Methods_T_PipServices_Data_IFilteredReader_1.htm">
+        <HelpTOCNode Title="GetListByFilterAsync Method " Url="html/M_PipServices_Data_IFilteredReader_1_GetListByFilterAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="f4abf00a-91c7-4046-b3d3-c596b3182724" Title="IGetter(T, K) Interface" Url="html/T_PipServices_Data_IGetter_2.htm">
+      <HelpTOCNode Id="af723163-fb1b-4821-83c6-c0b181f46117" Title="IGetter(T, K) Methods" Url="html/Methods_T_PipServices_Data_IGetter_2.htm">
+        <HelpTOCNode Title="GetOneByIdAsync Method " Url="html/M_PipServices_Data_IGetter_2_GetOneByIdAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="00677da8-74f2-462e-870f-4ca9d145b537" Title="ILoader(T) Interface" Url="html/T_PipServices_Data_ILoader_1.htm">
+      <HelpTOCNode Id="2916bc8d-df5a-415c-9326-aec837b48a56" Title="ILoader(T) Methods" Url="html/Methods_T_PipServices_Data_ILoader_1.htm">
+        <HelpTOCNode Title="LoadAsync Method " Url="html/M_PipServices_Data_ILoader_1_LoadAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b43fd19c-d8b1-4f69-a5f1-de8243add9a4" Title="IQuarablePageReader(T) Interface" Url="html/T_PipServices_Data_IQuarablePageReader_1.htm">
+      <HelpTOCNode Id="263437da-be5f-4c38-bf79-5e18c3ae331f" Title="IQuarablePageReader(T) Methods" Url="html/Methods_T_PipServices_Data_IQuarablePageReader_1.htm">
+        <HelpTOCNode Title="GetPageByQueryAsync Method " Url="html/M_PipServices_Data_IQuarablePageReader_1_GetPageByQueryAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="b4295445-3c77-4266-9b22-f5118099c626" Title="IQuerableReader(T) Interface" Url="html/T_PipServices_Data_IQuerableReader_1.htm">
+      <HelpTOCNode Id="0e110a72-7ddf-4057-a386-005efb620087" Title="IQuerableReader(T) Methods" Url="html/Methods_T_PipServices_Data_IQuerableReader_1.htm">
+        <HelpTOCNode Title="GetListByQueryAsync Method " Url="html/M_PipServices_Data_IQuerableReader_1_GetListByQueryAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="cd9ec4ee-b499-4309-83dc-29222ac09904" Title="ISaver(T) Interface" Url="html/T_PipServices_Data_ISaver_1.htm">
+      <HelpTOCNode Id="a3977854-64db-4b71-8949-35edf67c79ba" Title="ISaver(T) Methods" Url="html/Methods_T_PipServices_Data_ISaver_1.htm">
+        <HelpTOCNode Title="SaveAsync Method " Url="html/M_PipServices_Data_ISaver_1_SaveAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="46eb4814-dab3-40f5-b02c-446585c0944e" Title="ISetter(T) Interface" Url="html/T_PipServices_Data_ISetter_1.htm">
+      <HelpTOCNode Id="7614eeb3-b031-45ee-b162-e4653483d46f" Title="ISetter(T) Methods" Url="html/Methods_T_PipServices_Data_ISetter_1.htm">
+        <HelpTOCNode Title="SetAsync Method " Url="html/M_PipServices_Data_ISetter_1_SetAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="be31a054-3785-473f-8cdf-17d87293fd7b" Title="IWriter(T, K) Interface" Url="html/T_PipServices_Data_IWriter_2.htm">
+      <HelpTOCNode Id="cc25c1df-719d-474e-8295-6b566a2cf085" Title="IWriter(T, K) Methods" Url="html/Methods_T_PipServices_Data_IWriter_2.htm">
+        <HelpTOCNode Title="CreateAsync Method " Url="html/M_PipServices_Data_IWriter_2_CreateAsync.htm" />
+        <HelpTOCNode Title="DeleteByIdAsync Method " Url="html/M_PipServices_Data_IWriter_2_DeleteByIdAsync.htm" />
+        <HelpTOCNode Title="UpdateAsync Method " Url="html/M_PipServices_Data_IWriter_2_UpdateAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="24a24497-98a1-4a96-a832-44bd565cff6f" Title="PipServices.Data.File" Url="html/N_PipServices_Data_File.htm">
+    <HelpTOCNode Id="825872d5-cad2-440d-a51d-974974b4166d" Title="FilePersistence(T, K) Class" Url="html/T_PipServices_Data_File_FilePersistence_2.htm">
+      <HelpTOCNode Id="8b265110-4a22-43c7-844d-41322df4e681" Title="FilePersistence(T, K) Constructor " Url="html/Overload_PipServices_Data_File_FilePersistence_2__ctor.htm">
+        <HelpTOCNode Title="FilePersistence(T, K) Constructor " Url="html/M_PipServices_Data_File_FilePersistence_2__ctor.htm" />
+        <HelpTOCNode Title="FilePersistence(T, K) Constructor (JsonFilePersister(T))" Url="html/M_PipServices_Data_File_FilePersistence_2__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="dab7df24-2811-4c7e-958d-7e3fb9d71b2b" Title="FilePersistence(T, K) Methods" Url="html/Methods_T_PipServices_Data_File_FilePersistence_2.htm">
+        <HelpTOCNode Title="Configure Method " Url="html/M_PipServices_Data_File_FilePersistence_2_Configure.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="94b3f938-d814-401b-bb87-193cd7bf29b6" Title="FilePersistence(T, K) Fields" Url="html/Fields_T_PipServices_Data_File_FilePersistence_2.htm">
+        <HelpTOCNode Title="_persister Field" Url="html/F_PipServices_Data_File_FilePersistence_2__persister.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="4abb1c00-3dff-4248-a3b8-a298d0200bcc" Title="JsonFilePersister(T) Class" Url="html/T_PipServices_Data_File_JsonFilePersister_1.htm">
+      <HelpTOCNode Id="38e33391-699e-41d9-8d18-05bd7d99cb29" Title="JsonFilePersister(T) Constructor " Url="html/Overload_PipServices_Data_File_JsonFilePersister_1__ctor.htm">
+        <HelpTOCNode Title="JsonFilePersister(T) Constructor " Url="html/M_PipServices_Data_File_JsonFilePersister_1__ctor.htm" />
+        <HelpTOCNode Title="JsonFilePersister(T) Constructor (String)" Url="html/M_PipServices_Data_File_JsonFilePersister_1__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="b816dcda-6d83-4ac6-9900-a3ebaa60776e" Title="JsonFilePersister(T) Properties" Url="html/Properties_T_PipServices_Data_File_JsonFilePersister_1.htm">
+        <HelpTOCNode Title="Path Property " Url="html/P_PipServices_Data_File_JsonFilePersister_1_Path.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="48e4846c-a742-44df-a194-0a1f3d2a67e7" Title="JsonFilePersister(T) Methods" Url="html/Methods_T_PipServices_Data_File_JsonFilePersister_1.htm">
+        <HelpTOCNode Title="Configure Method " Url="html/M_PipServices_Data_File_JsonFilePersister_1_Configure.htm" />
+        <HelpTOCNode Title="LoadAsync Method " Url="html/M_PipServices_Data_File_JsonFilePersister_1_LoadAsync.htm" />
+        <HelpTOCNode Title="SaveAsync Method " Url="html/M_PipServices_Data_File_JsonFilePersister_1_SaveAsync.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="01ed370a-ac9f-4d57-a356-b0ad9230e56f" Title="PipServices.Data.Memory" Url="html/N_PipServices_Data_Memory.htm">
+    <HelpTOCNode Id="ab2d1eac-d281-4708-b081-20682758541d" Title="MemoryPersistence(T, K) Class" Url="html/T_PipServices_Data_Memory_MemoryPersistence_2.htm">
+      <HelpTOCNode Id="d037e855-f1ac-4001-9484-d857fbaa0cc9" Title="MemoryPersistence(T, K) Constructor " Url="html/Overload_PipServices_Data_Memory_MemoryPersistence_2__ctor.htm">
+        <HelpTOCNode Title="MemoryPersistence(T, K) Constructor " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2__ctor.htm" />
+        <HelpTOCNode Title="MemoryPersistence(T, K) Constructor (ILoader(T), ISaver(T))" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2__ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d36e55cc-2fdc-4b3d-83cd-e6edcd1649a2" Title="MemoryPersistence(T, K) Methods" Url="html/Methods_T_PipServices_Data_Memory_MemoryPersistence_2.htm">
+        <HelpTOCNode Title="ClearAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_ClearAsync.htm" />
+        <HelpTOCNode Title="CloseAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_CloseAsync.htm" />
+        <HelpTOCNode Title="Configure Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_Configure.htm" />
+        <HelpTOCNode Title="CreateAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_CreateAsync.htm" />
+        <HelpTOCNode Title="DeleteByIdAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_DeleteByIdAsync.htm" />
+        <HelpTOCNode Title="GetListByQueryAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetListByQueryAsync.htm" />
+        <HelpTOCNode Title="GetOneByIdAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetOneByIdAsync.htm" />
+        <HelpTOCNode Title="OpenAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_OpenAsync.htm" />
+        <HelpTOCNode Title="SaveAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SaveAsync.htm" />
+        <HelpTOCNode Title="SetAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SetAsync.htm" />
+        <HelpTOCNode Title="SetReferences Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SetReferences.htm" />
+        <HelpTOCNode Title="UpdateAsync Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_UpdateAsync.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="1c7e711d-9f77-4891-b810-caa04a1dbd72" Title="MemoryPersistence(T, K) Fields" Url="html/Fields_T_PipServices_Data_Memory_MemoryPersistence_2.htm">
+        <HelpTOCNode Title="_entities Field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__entities.htm" />
+        <HelpTOCNode Title="_loader Field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__loader.htm" />
+        <HelpTOCNode Title="_lock Field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__lock.htm" />
+        <HelpTOCNode Title="_logger Field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__logger.htm" />
+        <HelpTOCNode Title="_maxPageSize Field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__maxPageSize.htm" />
+        <HelpTOCNode Title="_saver Field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__saver.htm" />
+        <HelpTOCNode Title="_typeName Field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__typeName.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="4673c4cc-a835-4f1a-8a27-8d8dbf294bc3" Title="PipServices.Data.MongoDb" Url="html/N_PipServices_Data_MongoDb.htm">
+    <HelpTOCNode Id="f2bbfce2-2c07-4445-b80b-2cd0d178228e" Title="MongoDbPersistence(T, K) Class" Url="html/T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm">
+      <HelpTOCNode Title="MongoDbPersistence(T, K) Constructor " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2__ctor.htm" />
+      <HelpTOCNode Id="75219387-fa0d-41b8-8990-d80f638bf65b" Title="MongoDbPersistence(T, K) Methods" Url="html/Methods_T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm">
+        <HelpTOCNode Title="ClearAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_ClearAsync.htm" />
+        <HelpTOCNode Title="CloseAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CloseAsync.htm" />
+        <HelpTOCNode Title="Configure Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_Configure.htm" />
+        <HelpTOCNode Title="CreateAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CreateAsync.htm" />
+        <HelpTOCNode Title="DeleteByIdAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_DeleteByIdAsync.htm" />
+        <HelpTOCNode Title="GetOneByIdAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_GetOneByIdAsync.htm" />
+        <HelpTOCNode Id="25a717ae-2b90-420f-9193-f581773f771a" Title="OpenAsync Method " Url="html/Overload_PipServices_Data_MongoDb_MongoDbPersistence_2_OpenAsync.htm">
+          <HelpTOCNode Title="OpenAsync Method (String)" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_OpenAsync.htm" />
+          <HelpTOCNode Title="OpenAsync Method (String, ConnectionParams, CredentialParams)" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_OpenAsync_1.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="SetAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetAsync.htm" />
+        <HelpTOCNode Title="SetReferences Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetReferences.htm" />
+        <HelpTOCNode Title="UpdateAsync Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_UpdateAsync.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d0ae2f01-5588-42dc-92cc-afc39106dc2d" Title="MongoDbPersistence(T, K) Fields" Url="html/Fields_T_PipServices_Data_MongoDb_MongoDbPersistence_2.htm">
+        <HelpTOCNode Title="_collection Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__collection.htm" />
+        <HelpTOCNode Title="_collectionName Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__collectionName.htm" />
+        <HelpTOCNode Title="_connection Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__connection.htm" />
+        <HelpTOCNode Title="_connectionResolver Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__connectionResolver.htm" />
+        <HelpTOCNode Title="_credentialResolver Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__credentialResolver.htm" />
+        <HelpTOCNode Title="_database Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__database.htm" />
+        <HelpTOCNode Title="_logger Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__logger.htm" />
+        <HelpTOCNode Title="_options Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__options.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>
