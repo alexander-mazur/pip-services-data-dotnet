@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace PipServices.Data.MongoDb
 {
-    public class MongoDbPersistence<T, K> : IReferenceable, IConfigurable, IOpenable, IClosable, ICleanable,
+    public class MongoDbPersistence<T, K> : IReferenceable, IConfigurable, IOpenable, ICleanable,
         IWriter<T, K>, IGetter<T, K>, ISetter<T>
         where T : IIdentifiable<K>
         where K : class
@@ -67,6 +67,11 @@ namespace PipServices.Data.MongoDb
             _credentialResolver.Configure(config, true);
 
             _options = _options.Override(config.GetSection("options"));
+        }
+
+        public bool IsOpened()
+        {
+            return _collection != null;
         }
 
         public async virtual Task OpenAsync(string correlationId)

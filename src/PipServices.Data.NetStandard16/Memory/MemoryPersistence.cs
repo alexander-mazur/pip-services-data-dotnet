@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace PipServices.Data.Memory
 {
-    public class MemoryPersistence<T, K> : IReferenceable, IConfigurable, IOpenable, IClosable, ICleanable,
+    public class MemoryPersistence<T, K> : IReferenceable, IConfigurable, IOpenable, ICleanable,
         IWriter<T, K>, IGetter<T, K>, ISetter<T>, IQuerableReader<T>
         where T : IIdentifiable<K>
         where K : class
@@ -26,6 +26,7 @@ namespace PipServices.Data.Memory
         protected ILoader<T> _loader;
         protected ISaver<T> _saver;
         protected readonly ReaderWriterLockSlim _lock = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
+        protected bool _opened = false;
 
         public MemoryPersistence()
             : this(null, null)
@@ -49,14 +50,21 @@ namespace PipServices.Data.Memory
             _maxPageSize = config.GetAsIntegerWithDefault("max_page_size", _maxPageSize);
         }
 
+        public bool IsOpened()
+        {
+            return _opened;
+        }
+
         public async Task OpenAsync(string correlationId)
         {
             await LoadAsync(correlationId);
+            _opened = true;
         }
 
         public async Task CloseAsync(string correlationId)
         {
             await SaveAsync(correlationId);
+            _opened = false;
         }
 
         private Task LoadAsync(string correlationId)

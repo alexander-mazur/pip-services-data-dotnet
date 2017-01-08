@@ -12,7 +12,7 @@
       "version": "1.0.1"
     },
     "PipServices.Data.NetStandard16": "1.0.9",
-    "PipServices.Commons": "1.0.39"  },
+    "PipServices.Commons": "1.0.40" },
 
   "frameworks": {
     "netcoreapp1.0": {
