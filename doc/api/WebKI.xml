@@ -170,6 +170,10 @@
     <HelpKINode Title="methods" Url="html/Methods_T_PipServices_Data_ISetter_1.htm" />
   </HelpKINode>
   <HelpKINode Title="ISetter&lt;T&gt;.SetAsync method" Url="html/M_PipServices_Data_ISetter_1_SetAsync.htm" />
+  <HelpKINode Title="IsOpened method">
+    <HelpKINode Title="MemoryPersistence(T, K).IsOpened Method " Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_IsOpened.htm" />
+    <HelpKINode Title="MongoDbPersistence(T, K).IsOpened Method " Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_IsOpened.htm" />
+  </HelpKINode>
   <HelpKINode Title="IWriter(Of T, K) interface">
     <HelpKINode Title="IWriter(T, K) Interface" Url="html/T_PipServices_Data_IWriter_2.htm" />
     <HelpKINode Title="about IWriter(Of T, K) interface" Url="html/T_PipServices_Data_IWriter_2.htm" />
@@ -228,6 +232,7 @@
   <HelpKINode Title="MemoryPersistence(Of T, K).DeleteByIdAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_DeleteByIdAsync.htm" />
   <HelpKINode Title="MemoryPersistence(Of T, K).GetListByQueryAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetListByQueryAsync.htm" />
   <HelpKINode Title="MemoryPersistence(Of T, K).GetOneByIdAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K).IsOpened method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_IsOpened.htm" />
   <HelpKINode Title="MemoryPersistence(Of T, K).MemoryPersistence constructor" Url="html/Overload_PipServices_Data_Memory_MemoryPersistence_2__ctor.htm" />
   <HelpKINode Title="MemoryPersistence(Of T, K).OpenAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_OpenAsync.htm" />
   <HelpKINode Title="MemoryPersistence(Of T, K).SaveAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SaveAsync.htm" />
@@ -239,6 +244,7 @@
   <HelpKINode Title="MemoryPersistence(Of T, K)._lock field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__lock.htm" />
   <HelpKINode Title="MemoryPersistence(Of T, K)._logger field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__logger.htm" />
   <HelpKINode Title="MemoryPersistence(Of T, K)._maxPageSize field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__maxPageSize.htm" />
+  <HelpKINode Title="MemoryPersistence(Of T, K)._opened field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__opened.htm" />
   <HelpKINode Title="MemoryPersistence(Of T, K)._saver field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__saver.htm" />
   <HelpKINode Title="MemoryPersistence(Of T, K)._typeName field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__typeName.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt; class">
@@ -255,6 +261,7 @@
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.DeleteByIdAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_DeleteByIdAsync.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.GetListByQueryAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetListByQueryAsync.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.GetOneByIdAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.IsOpened method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_IsOpened.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.MemoryPersistence constructor" Url="html/Overload_PipServices_Data_Memory_MemoryPersistence_2__ctor.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.OpenAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_OpenAsync.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;.SaveAsync method" Url="html/M_PipServices_Data_Memory_MemoryPersistence_2_SaveAsync.htm" />
@@ -266,6 +273,7 @@
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._lock field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__lock.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._logger field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__logger.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._maxPageSize field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__maxPageSize.htm" />
+  <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._opened field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__opened.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._saver field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__saver.htm" />
   <HelpKINode Title="MemoryPersistence&lt;T, K&gt;._typeName field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__typeName.htm" />
   <HelpKINode Title="MongoDbPersistence(Of T, K) class">
@@ -281,6 +289,7 @@
   <HelpKINode Title="MongoDbPersistence(Of T, K).CreateAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CreateAsync.htm" />
   <HelpKINode Title="MongoDbPersistence(Of T, K).DeleteByIdAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_DeleteByIdAsync.htm" />
   <HelpKINode Title="MongoDbPersistence(Of T, K).GetOneByIdAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence(Of T, K).IsOpened method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_IsOpened.htm" />
   <HelpKINode Title="MongoDbPersistence(Of T, K).MongoDbPersistence constructor" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2__ctor.htm" />
   <HelpKINode Title="MongoDbPersistence(Of T, K).OpenAsync method" Url="html/Overload_PipServices_Data_MongoDb_MongoDbPersistence_2_OpenAsync.htm" />
   <HelpKINode Title="MongoDbPersistence(Of T, K).SetAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetAsync.htm" />
@@ -307,6 +316,7 @@
   <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.CreateAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_CreateAsync.htm" />
   <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.DeleteByIdAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_DeleteByIdAsync.htm" />
   <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.GetOneByIdAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_GetOneByIdAsync.htm" />
+  <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.IsOpened method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_IsOpened.htm" />
   <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.MongoDbPersistence constructor" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2__ctor.htm" />
   <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.OpenAsync method" Url="html/Overload_PipServices_Data_MongoDb_MongoDbPersistence_2_OpenAsync.htm" />
   <HelpKINode Title="MongoDbPersistence&lt;T, K&gt;.SetAsync method" Url="html/M_PipServices_Data_MongoDb_MongoDbPersistence_2_SetAsync.htm" />
@@ -396,6 +406,7 @@
     <HelpKINode Title="MongoDbPersistence(T, K)._logger Field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__logger.htm" />
   </HelpKINode>
   <HelpKINode Title="_maxPageSize field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__maxPageSize.htm" />
+  <HelpKINode Title="_opened field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__opened.htm" />
   <HelpKINode Title="_options field" Url="html/F_PipServices_Data_MongoDb_MongoDbPersistence_2__options.htm" />
   <HelpKINode Title="_persister field" Url="html/F_PipServices_Data_File_FilePersistence_2__persister.htm" />
   <HelpKINode Title="_saver field" Url="html/F_PipServices_Data_Memory_MemoryPersistence_2__saver.htm" />
