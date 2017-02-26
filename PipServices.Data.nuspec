@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>PipServices.Data</id>
-    <version>1.0.13</version>
+    <version>2.0.0</version>
     <title>PipServices.Data</title>
     <authors>Sergey Seroukhov, Volodymyr Tkachenko</authors>
 
@@ -20,14 +20,14 @@
       <group targetFramework=".NETFramework4.5">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
         <dependency id="System.Collections.Immutable" version="1.3.1" />
-        <dependency id="PipServices.Commons" version="1.0.43" />
+        <dependency id="PipServices.Commons" version="2.0.1" />
         <dependency id="System.Runtime.InteropServices.RuntimeInformation" version="4.3.0" />
       </group>
       <group targetFramework=".NETStandard1.3">
         <dependency id="NETStandard.Library" version="1.6.0" />
         <dependency id="Newtonsoft.Json" version="9.0.1" />
         <dependency id="System.Collections.Immutable" version="1.3.1" />
-        <dependency id="PipServices.Commons" version="1.0.43" />
+        <dependency id="PipServices.Commons" version="2.0.1" />
       </group>
     </dependencies>
   </metadata>

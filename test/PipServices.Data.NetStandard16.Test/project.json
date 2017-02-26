@@ -12,7 +12,7 @@
       "version": "1.0.1"
     },
     "PipServices.Data.NetStandard16": "1.0.9",
-    "PipServices.Commons": "1.0.43",
+    "PipServices.Commons": "2.0.1",
     "NETStandard.Library": "1.6.0" },
 
   "frameworks": {
