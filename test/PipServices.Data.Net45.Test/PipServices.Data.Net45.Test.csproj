@@ -83,17 +83,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\PipServices.Data.Netstandard16.Test\File\FilePersistenceTest.cs">
-      <Link>File\FilePersistenceTest.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16.Test\File\IdentifiableFilePersistenceTest.cs">
+      <Link>File\IdentifiableFilePersistenceTest.cs</Link>
     </Compile>
     <Compile Include="..\PipServices.Data.Netstandard16.Test\File\JsonFilePersisterTest.cs">
       <Link>File\JsonFilePersisterTest.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16.Test\Memory\MemoryPersistenceTest.cs">
-      <Link>Memory\MemoryPersistenceTest.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16.Test\Memory\IdentifiableMemoryPersistenceTest.cs">
+      <Link>Memory\IdentifiableMemoryPersistenceTest.cs</Link>
     </Compile>
-    <Compile Include="..\PipServices.Data.Netstandard16.Test\MongoDb\MongoDbPersistenceTest.cs">
-      <Link>MongoDb\MongoDbPersistenceTest.cs</Link>
+    <Compile Include="..\PipServices.Data.NetStandard16.Test\MongoDb\IdentifiableMongoDbPersistenceTest.cs">
+      <Link>MongoDb\IdentifiableMongoDbPersistenceTest.cs</Link>
     </Compile>
     <Compile Include="..\PipServices.Data.Netstandard16.Test\PersistenceFixture.cs">
       <Link>PersistenceFixture.cs</Link>

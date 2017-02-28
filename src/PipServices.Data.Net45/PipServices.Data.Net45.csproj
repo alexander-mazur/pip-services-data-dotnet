@@ -80,6 +80,9 @@
     <Compile Include="..\PipServices.Data.Netstandard16\File\FilePersistence.cs">
       <Link>File\FilePersistence.cs</Link>
     </Compile>
+    <Compile Include="..\PipServices.Data.NetStandard16\File\IdentifiableFilePersistence.cs">
+      <Link>File\IdentifiableFilePersistence.cs</Link>
+    </Compile>
     <Compile Include="..\PipServices.Data.Netstandard16\File\JsonFilePersister.cs">
       <Link>File\JsonFilePersister.cs</Link>
     </Compile>
@@ -113,8 +116,14 @@
     <Compile Include="..\PipServices.Data.NetStandard16\IWriter.cs">
       <Link>IWriter.cs</Link>
     </Compile>
+    <Compile Include="..\PipServices.Data.NetStandard16\Memory\IdentifiableMemoryPersistence.cs">
+      <Link>Memory\IdentifiableMemoryPersistence.cs</Link>
+    </Compile>
     <Compile Include="..\PipServices.Data.Netstandard16\Memory\MemoryPersistence.cs">
       <Link>Memory\MemoryPersistence.cs</Link>
+    </Compile>
+    <Compile Include="..\PipServices.Data.NetStandard16\MongoDb\IdentifiableMongoDbPersistence.cs">
+      <Link>MongoDb\IdentifiableMongoDbPersistence.cs</Link>
     </Compile>
     <Compile Include="..\PipServices.Data.Netstandard16\MongoDb\MongoDbPersistence.cs">
       <Link>MongoDb\MongoDbPersistence.cs</Link>

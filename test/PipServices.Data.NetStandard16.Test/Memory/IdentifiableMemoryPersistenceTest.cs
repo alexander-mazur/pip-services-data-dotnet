@@ -1,14 +1,14 @@
-﻿using System;
-using System.Threading;
-using PipServices.Data.File;
+﻿using System.Threading;
+using PipServices.Data.Memory;
 using PipServices.Commons.Config;
 using Xunit;
 
-namespace PipServices.Data.Test.File
+namespace PipServices.Data.Test.Memory
 {
-    public sealed class FilePersistenceTest : IDisposable
+    public sealed class IdentifiableMemoryPersistenceTest
     {
-        private static FilePersistence<PersistenceFixture.Dummy, string> Db { get; } = new FilePersistence<PersistenceFixture.Dummy,string>(new JsonFilePersister<PersistenceFixture.Dummy>());
+        private static IdentifiableMemoryPersistence<PersistenceFixture.Dummy, string> Db 
+            = new IdentifiableMemoryPersistence<PersistenceFixture.Dummy, string>();
         private static PersistenceFixture Fixture { get; set; }
 
         private PersistenceFixture GetFixture()
@@ -16,12 +16,12 @@ namespace PipServices.Data.Test.File
             return new PersistenceFixture(Db, Db, Db, Db, Db, Db, Db, Db);
         }
 
-        public FilePersistenceTest()
+        public IdentifiableMemoryPersistenceTest()
         {
             if (Db == null)
                 return;
 
-            Db.Configure(ConfigParams.FromTuples("path", nameof(FilePersistenceTest)));
+            Db.Configure(new ConfigParams());
 
             var task = Db.OpenAsync(null);
             task.Wait();
@@ -47,12 +47,6 @@ namespace PipServices.Data.Test.File
             if (Fixture == null) return;
 
             var task = Fixture.TestMultithreading();
-            task.Wait();
-        }
-
-        public void Dispose()
-        {
-            var task = Db.CloseAsync(null);
             task.Wait();
         }
     }

@@ -4,6 +4,7 @@
 
 ### Breaking Changes
 * Migrated to pip-services-commons 2.0
+* Separated **Persistence** and **IdentifiablePersistence** classes
 
 ## <a name="1.0.1-1.0.11"></a> 1.0.1-1.0.11 (2017-01-07)
 

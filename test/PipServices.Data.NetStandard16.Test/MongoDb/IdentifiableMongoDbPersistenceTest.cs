@@ -6,13 +6,13 @@ using Xunit;
 
 namespace PipServices.Data.Test.MongoDb
 {
-    public sealed class MongoDbPersistenceTest : IDisposable
+    public sealed class IdentifiableMongoDbPersistenceTest : IDisposable
     {
-        private static MongoDbPersistence<PersistenceFixture.Dummy, string> Db { get; } 
-            = new MongoDbPersistence<PersistenceFixture.Dummy, string>("dummies");
+        private static IdentifiableMongoDbPersistence<PersistenceFixture.Dummy, string> Db { get; } 
+            = new IdentifiableMongoDbPersistence<PersistenceFixture.Dummy, string>("dummies");
         private static PersistenceFixture Fixture { get; set; }
 
-        public MongoDbPersistenceTest()
+        public IdentifiableMongoDbPersistenceTest()
         {
             if (Db == null) return;
 
